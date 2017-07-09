@@ -1,0 +1,14 @@
+﻿  Stack.cpp
+e:\utility programs\vs - c++\datastructures and algorithms made easy\datastructures and algorithms made easy\stack.cpp(46): warning C4473: 'printf' : not enough arguments passed for format string
+  e:\utility programs\vs - c++\datastructures and algorithms made easy\datastructures and algorithms made easy\stack.cpp(46): note: placeholders and their parameters expect 1 variadic arguments, but 0 were provided
+  e:\utility programs\vs - c++\datastructures and algorithms made easy\datastructures and algorithms made easy\stack.cpp(46): note: the missing variadic argument 1 is required by format string '%s'
+e:\utility programs\vs - c++\datastructures and algorithms made easy\datastructures and algorithms made easy\stack.cpp(55): warning C4473: 'printf' : not enough arguments passed for format string
+  e:\utility programs\vs - c++\datastructures and algorithms made easy\datastructures and algorithms made easy\stack.cpp(55): note: placeholders and their parameters expect 1 variadic arguments, but 0 were provided
+  e:\utility programs\vs - c++\datastructures and algorithms made easy\datastructures and algorithms made easy\stack.cpp(55): note: the missing variadic argument 1 is required by format string '%S'
+e:\utility programs\vs - c++\datastructures and algorithms made easy\datastructures and algorithms made easy\stack.cpp(67): warning C4101: 'answer': unreferenced local variable
+  LinkedList.cpp
+  BinaryTree.cpp
+  Generating Code...
+e:\utility programs\vs - c++\datastructures and algorithms made easy\datastructures and algorithms made easy\binarytree.cpp(88): warning C4715: 'BinaryTree::find_key': not all control paths return a value
+Stack.obj : error LNK2005: _main already defined in BinaryTree.obj
+E:\Utility Programs\VS - C++\DataStructures and Algorithms Made Easy\Debug\DataStructures and Algorithms Made Easy.exe : fatal error LNK1169: one or more multiply defined symbols found
