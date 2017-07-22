@@ -175,7 +175,7 @@ void list::delete_position(int pos)
 
 	delete current;
 }
-
+/*
 int main()
 {
 	list l_list;
@@ -233,4 +233,4 @@ int main()
 	system("pause");
 	
 	return 0;
-}
+}*/
