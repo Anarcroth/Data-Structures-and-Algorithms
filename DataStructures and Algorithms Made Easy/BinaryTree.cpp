@@ -104,7 +104,7 @@ BinaryTree::~BinaryTree()
 {
 	delete_tree(root);
 }
-
+/*
 int main()
 {
 	BinaryTree bt;
@@ -117,4 +117,4 @@ int main()
 	}
 
 	return 0;
-}
+}*/

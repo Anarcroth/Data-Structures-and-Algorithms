@@ -89,9 +89,9 @@ void delete_queue(queue *q)
 
 	free(q);
 }
-
+/*
 int main()
 {
 
 	return 0;
-}
+}*/

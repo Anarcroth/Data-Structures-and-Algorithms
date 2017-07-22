@@ -2,80 +2,102 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define MAXSIZE 10
-
-struct ArrStack
+struct node 
 {
-	int top;
-	int capacity;
-	int *array;
+	node *next;
+	int key;
 };
 
-ArrStack *create_stack()
+void init(node *top)
 {
-	// Allocate space for the whole ADT
-	struct ArrStack *AStack = (struct ArrStack*) malloc(sizeof(struct ArrStack));
-
-	if (!AStack)
-		return NULL;
-
-	AStack->capacity = MAXSIZE;
-	AStack->top = -1;
-	// Allocate space for the array in the stack
-	AStack->array = (int*) malloc(AStack->capacity * sizeof(int));
-
-	if (!AStack->array)
-		return NULL;
-
-	return AStack;
+	top = NULL;
 }
 
-bool stack_is_empty(struct ArrStack *S)
+node* push(node *head, int key)
 {
-	return (S->top == -1) ? true : false;
+	node *temp = (node*)malloc(sizeof(node));
+
+	if (temp == NULL)
+		exit(0);
+
+	temp->key = key;
+	temp->next = head;
+
+	head = temp;
+
+	return head;
 }
 
-bool stack_is_full(struct ArrStack *S)
+node* pop(node *head, int *element)
 {
-	return (S->top == S->capacity - 1) ? true : false;
+	*element = head->key;
+	head = head->next;
+
+	return head;
 }
 
-void push(struct ArrStack *S, int data)
+void display(struct node* head)
 {
-	if (stack_is_full(S))
-		printf("%sStack Overflow");
-	else
-		S->array[++S->top] = data;
-}
+	struct node *current;
+	current = head;
 
-int pop(struct ArrStack *S)
-{
-	if (stack_is_empty(S))
+	if (current != NULL)
 	{
-		printf("%Stack Underflow");
-		return INT_MIN;
+		printf("Stack: ");
+		do
+		{
+			printf("%d ", current->key);
+			current = current->next;
+		} while (current != NULL);
+		printf("\n");
 	}
 	else
-		return (S->array[S->top--]);
+	{
+		printf("The Stack is empty\n");
+	}
+
+}
+
+bool empty(node *head)
+{
+	return head == NULL;
 }
 
 int main()
 {
-	ArrStack *stack = create_stack();
+	struct node* head = NULL;
+	int size, element;
+	int counter = 0;
 
-	int num = 0;
-	char answer;
+	printf("Enter the number of stack elements:");
+	scanf_s("%d", &size);
 
-	while (true)
+	printf("--- Push elements into the linked stack ---\n");
+
+	init(head);
+
+	while (counter < size)
 	{
-		std::cout << "Enter a number: ";
-		std::cin >> num;
-		push(stack, num);
 
-		if (stack->top == MAXSIZE)
-			false;
+		printf("Enter a number to push into the stack:");
+		scanf_s("%d", &element);
+		head = push(head, element);
+		display(head);
+		counter++;
 	}
 
-	pop(stack);
+	printf("--- Pop elements from the linked stack --- \n");
+	while (empty(head) == 0)
+	{
+		head = pop(head, &element);
+		printf("Pop %d from stack\n", element);
+		display(head);
+	}
+
+
+	int z;
+
+	std::cin >> z;
+
 	return 0;
 }
