@@ -69,7 +69,7 @@ int de_queue(queue *q)
 	{
 		temp = q->front;
 		key = q->front->key;
-		q->front == q->front->next;
+		q->front = q->front->next;
 		free(temp);
 	}
 
