@@ -9,10 +9,7 @@ struct node
 	int key;
 };
 
-/*
-Allocate space and push 
-new node on top of stack
-*/
+/* Allocate space and push new node on top of stack */
 struct node* push(struct node *top, int key)
 {
 	struct node *temp = (struct node*)malloc(sizeof(struct node));
@@ -28,6 +25,8 @@ struct node* push(struct node *top, int key)
 	return top;
 }
 
+/* Remove and return the key at the top of the stack
+and then set the top of the stack to the next node */
 struct node* pop(struct node *top, int *element)
 {
 	*element = top->key;
@@ -52,7 +51,7 @@ void display_stack(struct node* top)
 		printf("\n");
 	}
 	else
-		printf("The Stack is is empty\n");
+		printf("The Stack is is empty.\n");
 
 }
 
@@ -64,35 +63,39 @@ int is_empty(struct node *top)
 int main()
 {
 	struct node* top = NULL;
-	int size, element;
-	int counter = 0;
+	int answer = 0, elem = 0;
 
-	printf("Enter the number of stack elements: ");
-	scanf_s("%d", &size);
+	printf("----- Menu -----\n");
 
-	printf("--- Push elements into the linked stack ---\n");
+	printf("1. Push new element to stack.\n");
+	printf("2. Pop top of stack.\n");
+	printf("3. Display contents of stack.\n");
+	printf("4. quit.\n");
 
-	while (counter < size)
-	{
+	do {
+		printf("Take action: ");
+		scanf_s("%u", answer);
 
-		printf("Enter a number to push into the stack: ");
-		scanf_s("%d", &element);
+		printf("Enter an element: ");
+		scanf_s("%d", &elem);
 
-		top = push(top, element);
-		display_stack(top);
-		
-		counter++;
-	}
-
-	printf("--- Pop elements from the linked stack --- \n");
-
-	while (!is_empty(top))
-	{
-		top = pop(top, &element);
-		printf("Pop %d from stack\n", element);
-
-		display_stack(top);
-	}
+		switch (answer)
+		{
+		case 1:
+			top = push(top, elem);
+			break;
+		case 2:
+			top = pop(top, &elem);
+			break;
+		case 3:
+			display_stack(top);
+			break;
+		case 4:
+			exit(0);
+			break;
+		}
+	
+	} while (answer);
 
 	return 0;
 }

@@ -148,7 +148,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="c_dynamic_stack.c" />
+    <ClCompile Include="c_linkedlist_stack.c" />
     <ClCompile Include="Queue.cpp" />
     <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="LinkedList.cpp" />
