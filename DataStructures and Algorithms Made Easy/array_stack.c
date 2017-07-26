@@ -32,6 +32,7 @@ struct array_stack *create_stack()
 
 	temp_stack->capacity = 1;
 	temp_stack->top = -1;
+
 	// Initial allocation is of size 1
 	temp_stack->array = (int)malloc(temp_stack->capacity * sizeof(int));
 	
@@ -133,17 +134,61 @@ void delete_stack(struct array_stack *stack)
 	free(stack);
 }
 
+//TODO display_stack, fix capacity index not to be -1...
+
 /**
 	Main method of the program.
 
 	@noparam
 	@return 0
 */
-int main()
+int main(void)
 {
 	struct array_stack *stack = NULL;
 
 	create_stack();
+
+	int answer = 0, elem = 0;
+
+	printf("----- Menu -----\n");
+
+	printf("1. Push new element to stack.\n");
+	printf("2. Pop top of stack.\n");
+	printf("3. Display contents of stack.\n");
+	printf("4. quit.\n");
+	
+	do 
+	{
+		printf("Take action: ");
+		scanf_s("%d", &answer);
+
+		switch (answer)
+		{
+		case 1:
+			printf("Enter an element: ");
+			scanf_s("%d", &elem);
+
+			push(&stack, &elem);
+			break;
+
+		case 2:
+			pop(&stack, &elem);
+			
+			if (!is_empty(&stack))
+				printf("\nThe poped element is: %d", &elem);
+			
+			break;
+
+		case 3:
+			display_stack(top);
+			break;
+
+		case 4:
+			exit(0);
+			break;
+		}
+	
+	} while (answer);
 
 	return 0;
 }

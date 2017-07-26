@@ -39,6 +39,17 @@ struct node* push(struct node *top, int key)
 }
 
 /**
+	Get the key from the top of the stack.
+
+	@param *top, Pointer to the top of the stack.
+	@return The key at the top of stack.
+*/
+int top(struct node *top)
+{
+	return top->key;
+}
+
+/**
 	Popes the top node of the stack and assigns the top
 	element of the stack to the element varaible.
 	
@@ -101,12 +112,12 @@ int is_empty(struct node *top)
 }
 
 /**
-	Main method where the program is executed.
+	Main method of the program.
 
 	@noparams
 	@return 0
 */
-int main()
+int main(void)
 {
 	struct node* top = NULL;
 
