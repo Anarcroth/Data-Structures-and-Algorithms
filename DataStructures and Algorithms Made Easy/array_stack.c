@@ -132,13 +132,19 @@ int pop(struct array_stack *stack)
 	return stack->array[stack->top--];
 }
 
+/**
+	Display the contents of stack.
+
+	@param *stack, Pointer to the strack structure.
+	@noreturn
+*/
 void display_stack(struct array_stack *stack)
 {
 	if (!is_empty(stack))
 	{
 		printf("Stack: ");
 
-		for (int elem = stack->num_elements - 1; elem > -1; elem--)
+		for (size_t elem = stack->num_elements - 1; elem > -1; elem--)
 			printf("%d ", stack->array[elem]);
 	}
 }
