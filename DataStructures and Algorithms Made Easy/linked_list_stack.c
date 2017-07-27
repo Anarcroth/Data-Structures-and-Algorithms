@@ -4,9 +4,9 @@
 	Purpose: Create linked list stack holding integers
 
 	@author: Martin Nestorov
-	@version: 0.1 24/07/2017
+	@version: 0.2 24/07/2017
 */
-
+/*
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -16,13 +16,20 @@ struct node
 	int key;
 };
 
+// Prototypes
+struct node* pop(struct node *top, int *element);
+struct node* push(struct node *top, int key);
+void display_stack(struct node* top);
+int is_empty(struct node *top);
+int top(struct node *top);
+
 /**
 	Allocates space and pushes new node element on top of stack. 
 
 	@param *top, Pointer to the top of the stack.
 	@param key, The value that is pushed on top.
 	@return Pointer to the new top of the stack.
-*/
+*//*
 struct node* push(struct node *top, int key)
 {
 	struct node *temp = (struct node*)malloc(sizeof(struct node));
@@ -43,7 +50,7 @@ struct node* push(struct node *top, int key)
 
 	@param *top, Pointer to the top of the stack.
 	@return The key at the top of stack.
-*/
+*//*
 int top(struct node *top)
 {
 	return top->key;
@@ -57,7 +64,7 @@ int top(struct node *top)
 	@param *element, Pointer to the element that will
 					 hold the top key of the stack.
 	@return Pointer to the new top of the stack.
-*/
+*//*
 struct node* pop(struct node *top, int *element)
 {
 	if (is_empty(top))
@@ -79,7 +86,7 @@ struct node* pop(struct node *top, int *element)
 	@param *top, Pointer to the top of the stack.
 	@return No return value, display a string if 
 			the stack is empty.
-*/
+*//*
 void display_stack(struct node* top)
 {
 	if (!is_empty(top))
@@ -105,7 +112,7 @@ void display_stack(struct node* top)
 
 	@param *top, Pointer to the top of the stack.
 	@return 1 if the stack is empty, 0 if it is not.
-*/
+*//*
 int is_empty(struct node *top)
 {
 	return top == NULL;
@@ -116,10 +123,10 @@ int is_empty(struct node *top)
 
 	@noparams
 	@return 0
-*/
+*//*
 int main(void)
 {
-	struct node* top = NULL;
+	struct node *top = NULL;
 
 	int answer = 0, elem = 0;
 
@@ -164,4 +171,4 @@ int main(void)
 	} while (answer);
 
 	return 0;
-}
+}*/
