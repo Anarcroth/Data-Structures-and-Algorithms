@@ -1,12 +1,12 @@
 /**
 	COS: FDS  
 	linked_list_stack.c
-	Purpose: Create linked list stack holding integers
+	Purpose:	Create linked list stack holding integers
 
-	@author: Martin Nestorov
-	@version: 0.2 24/07/2017
+	@author:	Martin Nestorov
+	@version:	0.2 24/07/2017
 */
-/*
+
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -19,17 +19,20 @@ struct node
 // Prototypes
 struct node* pop(struct node *top, int *element);
 struct node* push(struct node *top, int key);
-void display_stack(struct node* top);
+
+void display_stack(struct node *top);
+void delete_stack(struct node *top);
+
 int is_empty(struct node *top);
 int top(struct node *top);
 
 /**
 	Allocates space and pushes new node element on top of stack. 
 
-	@param *top, Pointer to the top of the stack.
-	@param key, The value that is pushed on top.
-	@return Pointer to the new top of the stack.
-*//*
+	@param *top		Pointer to the top of the stack.
+	@param key		The value that is pushed on top.
+	@return			Pointer to the new top of the stack.
+*/
 struct node* push(struct node *top, int key)
 {
 	struct node *temp = (struct node*)malloc(sizeof(struct node));
@@ -48,9 +51,9 @@ struct node* push(struct node *top, int key)
 /**
 	Get the key from the top of the stack.
 
-	@param *top, Pointer to the top of the stack.
-	@return The key at the top of stack.
-*//*
+	@param *top		Pointer to the top of the stack.
+	@return			The key at the top of stack.
+*/
 int top(struct node *top)
 {
 	return top->key;
@@ -60,11 +63,10 @@ int top(struct node *top)
 	Popes the top node of the stack and assigns the top
 	element of the stack to the element varaible.
 	
-	@param *top, Pointer to the top of the stack.
-	@param *element, Pointer to the element that will
-					 hold the top key of the stack.
-	@return Pointer to the new top of the stack.
-*//*
+	@param *top		Pointer to the top of the stack.
+	@param *element	Pointer to the element that will hold the top key of the stack.
+	@return			Pointer to the new top of the stack.
+*/
 struct node* pop(struct node *top, int *element)
 {
 	if (is_empty(top))
@@ -83,11 +85,10 @@ struct node* pop(struct node *top, int *element)
 /**
 	Display the whole contents of the stack.
 
-	@param *top, Pointer to the top of the stack.
-	@return No return value, display a string if 
-			the stack is empty.
-*//*
-void display_stack(struct node* top)
+	@param *top		Pointer to the top of the stack.
+	@return			No return value, display a string if the stack is empty.
+*/
+void display_stack(struct node *top)
 {
 	if (!is_empty(top))
 	{
@@ -110,20 +111,41 @@ void display_stack(struct node* top)
 /**
 	Check if the stack is empty.
 
-	@param *top, Pointer to the top of the stack.
-	@return 1 if the stack is empty, 0 if it is not.
-*//*
+	@param *top		Pointer to the top of the stack.
+	@return			1 if the stack is empty, 0 if it is not.
+*/
 int is_empty(struct node *top)
 {
 	return top == NULL;
 }
 
 /**
-	Main method of the program.
+	Delete the whole stack structure.
 
-	@noparams
-	@return 0
-*//*
+	@param *top		Pointer to the top of the stack.
+	@noreturn
+*/
+void delete_stack(struct node *top)
+{
+	if (!is_empty(top))
+	{
+		struct node *temp = (struct node*)malloc(sizeof(struct node));
+
+		if (temp == NULL)
+			exit(0);
+
+		while (top->next != NULL)
+		{
+			temp = top;
+			top = top->next;
+		}
+
+		free(temp);
+	}
+
+	free(top);
+}
+
 int main(void)
 {
 	struct node *top = NULL;
@@ -155,7 +177,7 @@ int main(void)
 			top = pop(top, &elem);
 			
 			if (!is_empty(top))
-				printf("\nThe poped element is: %d", &elem);
+				printf("The poped element is: %d\n", elem);
 			
 			break;
 
@@ -164,6 +186,8 @@ int main(void)
 			break;
 
 		case 4:
+			delete_stack(top);
+
 			exit(0);
 			break;
 		}
@@ -171,4 +195,4 @@ int main(void)
 	} while (answer);
 
 	return 0;
-}*/
+}

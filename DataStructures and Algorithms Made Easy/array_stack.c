@@ -1,10 +1,10 @@
 /**
 	COS: FDS
 	array_stack.c
-	Purpose: Create dyamic array stack holding integers
+	Purpose:	Create dyamic array stack holding integers
 
-	@author: Martin Nestorov
-	@version: 0.1 24/07/2017
+	@author:	Martin Nestorov
+	@version:	0.1 24/07/2017
 */
 
 #include <stdlib.h>
@@ -18,11 +18,24 @@ struct array_stack
 	int *array;
 };
 
+// Prototypes
+void double_stack_capacity(struct array_stack *stack);
+void display_stack(struct array_stack *stack);
+void push(struct array_stack *stack, int key);
+void delete_stack(struct array_stack *stack);
+
+int is_empty(struct array_stack *stack);
+int is_full(struct array_stack *stack);
+int pop(struct array_stack *stack);
+int top(struct array_stack *stack);
+
+struct array_stack *create_stack();
+
 /**
 	Allocate space and create the array stack.
 
 	@noparam
-	@return The initial stack.
+	@return		The initial stack.
 */
 struct array_stack *create_stack()
 {
@@ -47,8 +60,8 @@ struct array_stack *create_stack()
 /**
 	Check if stack is full.
 
-	@param *stack, Pointer to the stack structure.
-	@return 1 if the stack is full, 0 if it is not.
+	@param *stack	Pointer to the stack structure.
+	@return			1 if the stack is full, 0 if it is not.
 */
 int is_full(struct array_stack *stack)
 {
@@ -58,8 +71,8 @@ int is_full(struct array_stack *stack)
 /**
 	Check if stack is empty.
 	
-	@param *stack, Pointer to the stack structure.
-	@return 1 if the stack is empty, 0 if it is not.	
+	@param *stack	Pointer to the stack structure.
+	@return			1 if the stack is empty, 0 if it is not.	
 */
 int is_empty(struct array_stack *stack)
 {
@@ -69,7 +82,7 @@ int is_empty(struct array_stack *stack)
 /**
 	Double stacks capacity.
 	
-	@param *stack, Pointer to the stack structure.
+	@param *stack	Pointer to the stack structure.
 	@noreturn
 */
 void double_stack_capacity(struct array_stack *stack)
@@ -81,8 +94,8 @@ void double_stack_capacity(struct array_stack *stack)
 /**
 	Push an element on the top of the stack array.
 
-	@param *stack, Pointer to the stack structure.
-	@param key, The value that is pushed on top.
+	@param *stack	Pointer to the stack structure.
+	@param key		The value that is pushed on top.
 	@noreturn
 */
 void push(struct array_stack *stack, int key)
@@ -97,8 +110,8 @@ void push(struct array_stack *stack, int key)
 /**
 	Get the value at the top of stack.
 
-	@param *stack, Pointer to the stack structure.
-	@return The top element of the stack.
+	@param *stack	Pointer to the stack structure.
+	@return			The top element of the stack.
 */
 int top(struct array_stack *stack)
 {
@@ -115,8 +128,8 @@ int top(struct array_stack *stack)
 /**
 	Remove the top value of the stack.
 
-	@param *stack, Pointer to the stack structure.
-	@return Remove the top value of the stack and return it.
+	@param *stack	Pointer to the stack structure.
+	@return			Remove the top value of the stack and return it.
 */
 int pop(struct array_stack *stack)
 {
@@ -135,7 +148,7 @@ int pop(struct array_stack *stack)
 /**
 	Display the contents of stack.
 
-	@param *stack, Pointer to the strack structure.
+	@param *stack	Pointer to the strack structure.
 	@noreturn
 */
 void display_stack(struct array_stack *stack)
@@ -144,15 +157,17 @@ void display_stack(struct array_stack *stack)
 	{
 		printf("Stack: ");
 
-		for (size_t elem = stack->num_elements - 1; elem > -1; elem--)
+		for (int elem = stack->num_elements - 1; elem > -1; elem--)
 			printf("%d ", stack->array[elem]);
+
+		printf("\n");
 	}
 }
 
 /**
 	Delete the whole stack structure.
 
-	@param *stack, Pointer to the stack structure.
+	@param *stack	Pointer to the stack structure.
 	@noreturn
 */
 void delete_stack(struct array_stack *stack)
@@ -164,14 +179,6 @@ void delete_stack(struct array_stack *stack)
 	free(stack);
 }
 
-//TODO display_stack, fix capacity index not to be -1...
-
-/**
-	Main method of the program.
-
-	@noparam
-	@return 0
-*/
 int main(void)
 {
 	struct array_stack *stack = NULL;
@@ -205,7 +212,7 @@ int main(void)
 			elem = pop(stack);
 			
 			if (!is_empty(stack))
-				printf("\nThe poped element is: %d", &elem);
+				printf("\nThe poped element is: %d", elem);
 			
 			break;
 
@@ -214,6 +221,8 @@ int main(void)
 			break;
 			
 		case 4:
+			delete_stack(stack);
+
 			exit(0);
 			break;
 		}

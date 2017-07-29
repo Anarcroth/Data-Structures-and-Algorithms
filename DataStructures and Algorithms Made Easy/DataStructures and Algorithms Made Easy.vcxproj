@@ -148,7 +148,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="array_stack.c" />
+    <ClCompile Include="array_stack.c">
+      <FileType>CppCode</FileType>
+    </ClCompile>
     <ClCompile Include="linked_list_stack.c" />
     <ClCompile Include="Queue.cpp" />
     <ClCompile Include="BinaryTree.cpp" />
