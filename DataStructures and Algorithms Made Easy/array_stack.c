@@ -12,10 +12,10 @@
 
 struct array_stack
 {
-	int top;
-	int capacity;
 	int num_elements;
+	int capacity;
 	int *array;
+	int top;
 };
 
 // Prototypes
@@ -190,7 +190,8 @@ int main(void)
 	printf("1. Push new element to stack.\n");
 	printf("2. Pop top of stack.\n");
 	printf("3. Display contents of stack.\n");
-	printf("4. quit.\n");
+	printf("4. Look at the top of stack.\n");
+	printf("5. quit.\n");
 	
 	stack = create_stack();
 
@@ -221,6 +222,10 @@ int main(void)
 			break;
 			
 		case 4:
+			printf("The top element is: %d", top(stack));
+			break;
+
+		case 5:
 			delete_stack(stack);
 
 			exit(0);

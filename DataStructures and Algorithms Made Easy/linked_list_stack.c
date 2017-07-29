@@ -17,14 +17,14 @@ struct node
 };
 
 // Prototypes
-struct node* pop(struct node *top, int *element);
-struct node* push(struct node *top, int key);
+struct node* pop(struct node *stack, int *element);
+struct node* push(struct node *stack, int key);
 
-void display_stack(struct node *top);
-void delete_stack(struct node *top);
+void display_stack(struct node *stack);
+void delete_stack(struct node *stack);
 
-int is_empty(struct node *top);
-int top(struct node *top);
+int is_empty(struct node *stack);
+int top(struct node *stack);
 
 /**
 	Allocates space and pushes new node element on top of stack. 
@@ -33,7 +33,7 @@ int top(struct node *top);
 	@param key		The value that is pushed on top.
 	@return			Pointer to the new top of the stack.
 */
-struct node* push(struct node *top, int key)
+struct node* push(struct node *stack, int key)
 {
 	struct node *temp = (struct node*)malloc(sizeof(struct node));
 
@@ -41,11 +41,11 @@ struct node* push(struct node *top, int key)
 		exit(0);
 
 	temp->key = key;
-	temp->next = top;
+	temp->next = stack;
 
-	top = temp;
+	stack = temp;
 
-	return top;
+	return stack;
 }
 
 /**
@@ -54,9 +54,9 @@ struct node* push(struct node *top, int key)
 	@param *top		Pointer to the top of the stack.
 	@return			The key at the top of stack.
 */
-int top(struct node *top)
+int top(struct node *stack)
 {
-	return top->key;
+	return stack->key;
 }
 
 /**
@@ -67,19 +67,19 @@ int top(struct node *top)
 	@param *element	Pointer to the element that will hold the top key of the stack.
 	@return			Pointer to the new top of the stack.
 */
-struct node* pop(struct node *top, int *element)
+struct node* pop(struct node *stack, int *element)
 {
-	if (is_empty(top))
+	if (is_empty(stack))
 	{
 		printf("The Stack is empty.\n");
 
 		return NULL;
 	}
 
-	*element = top->key;
-	top = top->next;
+	*element = stack->key;
+	stack = stack->next;
 
-	return top;
+	return stack;
 }
 
 /**
@@ -88,18 +88,18 @@ struct node* pop(struct node *top, int *element)
 	@param *top		Pointer to the top of the stack.
 	@return			No return value, display a string if the stack is empty.
 */
-void display_stack(struct node *top)
+void display_stack(struct node *stack)
 {
-	if (!is_empty(top))
+	if (!is_empty(stack))
 	{
 		printf("Stack: ");
 	
 		do
 		{
-			printf("%d ", top->key);
-			top = top->next;
+			printf("%d ", stack->key);
+			stack = stack->next;
 
-		} while (top != NULL);
+		} while (stack != NULL);
 		
 		printf("\n");
 	}
@@ -114,9 +114,9 @@ void display_stack(struct node *top)
 	@param *top		Pointer to the top of the stack.
 	@return			1 if the stack is empty, 0 if it is not.
 */
-int is_empty(struct node *top)
+int is_empty(struct node *stack)
 {
-	return top == NULL;
+	return stack == NULL;
 }
 
 /**
@@ -125,30 +125,30 @@ int is_empty(struct node *top)
 	@param *top		Pointer to the top of the stack.
 	@noreturn
 */
-void delete_stack(struct node *top)
+void delete_stack(struct node *stack)
 {
-	if (!is_empty(top))
+	if (!is_empty(stack))
 	{
 		struct node *temp = (struct node*)malloc(sizeof(struct node));
 
 		if (temp == NULL)
 			exit(0);
 
-		while (top->next != NULL)
+		while (stack->next != NULL)
 		{
-			temp = top;
-			top = top->next;
+			temp = stack;
+			stack = stack->next;
 		}
 
 		free(temp);
 	}
 
-	free(top);
+	free(stack);
 }
 
 int main(void)
 {
-	struct node *top = NULL;
+	struct node *stack = NULL;
 
 	int answer = 0, elem = 0;
 
@@ -157,7 +157,8 @@ int main(void)
 	printf("1. Push new element to stack.\n");
 	printf("2. Pop top of stack.\n");
 	printf("3. Display contents of stack.\n");
-	printf("4. quit.\n");
+	printf("4. Look at the top of stack.\n");
+	printf("5. quit.\n");
 
 	do 
 	{
@@ -170,23 +171,27 @@ int main(void)
 			printf("Enter an element: ");
 			scanf_s("%d", &elem);
 
-			top = push(top, elem);
+			stack = push(stack, elem);
 			break;
 
 		case 2:
-			top = pop(top, &elem);
+			stack = pop(stack, &elem);
 			
-			if (!is_empty(top))
+			if (!is_empty(stack))
 				printf("The poped element is: %d\n", elem);
 			
 			break;
 
 		case 3:
-			display_stack(top);
+			display_stack(stack);
 			break;
 
 		case 4:
-			delete_stack(top);
+			printf("The top element is: %d\n", top(stack));
+			break;
+
+		case 5:
+			delete_stack(stack);
 
 			exit(0);
 			break;
