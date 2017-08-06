@@ -4,7 +4,7 @@
 	Purpose:	Create dyamic array stack holding integers
 
 	@author:	Martin Nestorov
-	@version:	0.1 24/07/2017
+	@version:	0.2.1 24/07/2017
 */
 
 #include <iostream>
@@ -22,42 +22,21 @@ public:
 	~stack();
 
 	void display_stack();
-	void push(int key);
+	void push(int &key);
 
-	bool is_empty(node *top_of_stack);
+	bool is_empty();
 	
 	int pop();
 	int top();
 
-	node *top_of_stack;
 
 private:
-	void push(node *top_of_stack, int key);
-	void display_stack(node *top_of_stack);
-	void delete_stack(node *top_of_stack);	
+	void delete_stack();	
 	
-	int pop(node *top_of_stack);
-	int top(node *top_of_stack);
+	node *top_of_stack;
 };
 
 stack::stack() : top_of_stack(NULL) { }
-
-/**
-	Pass an element to be pushed on the top. If needed, create a stack and the push the new element.
-
-	@param key		The value that is pushed on top
-*/
-void stack::push(int key)
-{
-	if (is_empty(top_of_stack))
-	{
-		top_of_stack = new node;
-		top_of_stack->key = key;
-		top_of_stack->next = NULL;
-	}
-	else
-		push(top_of_stack, key);
-}
 
 /**
 	Push new element on top of stack
@@ -65,23 +44,14 @@ void stack::push(int key)
 	@param *top_of_stack		The pointer to the top of stack
 	@param key					The value that is pushed on top
 */
-void stack::push(node *top_of_stack, int key)
+void stack::push(int &key)
 {
 	node *temp = new node;
+
 	temp->key = key;
 	temp->next = top_of_stack;
 	
 	top_of_stack = temp;
-}
-
-/**
-	Get the top element from the top of stack
-
-	@return The top element from the stack
-*/
-int stack::pop()
-{
-	return pop(top_of_stack);
 }
 
 /**
@@ -91,25 +61,17 @@ int stack::pop()
 	@param *top_of_stack		The pointer to the top of stack
 	@return						The top element from the stack
 */
-int stack::pop(node *top_of_stack)
+int stack::pop()
 {
-	if (!is_empty(top_of_stack))
+	if (!is_empty())
 	{
 		int key = top_of_stack->key;
 		top_of_stack = top_of_stack->next;
 
 		return key;
 	}
-}
 
-/**
-	Get the top element from the stack
-
-	@return The top element from the stack
-*/
-int stack::top()
-{
-	return top(top_of_stack);
+	return NULL;
 }
 
 /**
@@ -118,9 +80,9 @@ int stack::top()
 	@param *top_of_stack		The pointer to the top of stack
 	@return						The top element from the stack
 */
-int stack::top(node *top_of_stack)
+int stack::top()
 {
-	if (!is_empty(top_of_stack))
+	if (!is_empty())
 		return top_of_stack->key;
 	else
 		return 0;
@@ -128,28 +90,24 @@ int stack::top(node *top_of_stack)
 
 /**
 	Display the contents of the stack
-*/
-void stack::display_stack()
-{
-	display_stack(top_of_stack);
-}
-
-/**
-	Display the contents of the stack
 
 	@param *top_of_stack	The pointer to the top of stack
 */
-void stack::display_stack(node *top_of_stack)
+void stack::display_stack()
 {
-	if (!is_empty(top_of_stack))
+	node *temp = new node;
+
+	temp = top_of_stack;
+
+	if (!is_empty())
 	{
 		std::cout << "Stack: ";
 
 		do
 		{
-			std::cout << " " << top_of_stack->key;
-			top_of_stack = top_of_stack->next;
-		} while (top_of_stack != NULL);
+			std::cout << temp->key << " ";
+			temp = temp->next;
+		} while (temp != NULL);
 
 		std::cout << "\n";
 	}
@@ -163,7 +121,7 @@ void stack::display_stack(node *top_of_stack)
 	@param *top_of_stack	Pointer to the top of the stack
 	@return					True of the stack is empty, otherwise, false
 */
-bool stack::is_empty(node *top_of_stack)
+bool stack::is_empty()
 {
 	return top_of_stack == NULL;
 }
@@ -173,9 +131,9 @@ bool stack::is_empty(node *top_of_stack)
 
 	@param *top_of_satck	Pointer to the top of the stack
 */
-void stack::delete_stack(node *top_of_stack)
+void stack::delete_stack()
 {
-	if (!is_empty(top_of_stack))
+	if (!is_empty())
 	{
 		node *temp = new node;
 
@@ -193,7 +151,7 @@ void stack::delete_stack(node *top_of_stack)
 
 stack::~stack()
 {
-	delete_stack(top_of_stack);
+	delete_stack();
 }
 
 int main(void)
@@ -202,17 +160,18 @@ int main(void)
 
 	int answer = 0, elem = 0;
 
-	std::cout << "----- Menu -----\n";
+	std::cout << "----- OOP Stack Menu -----\n";
 
 	std::cout << "1. Push new element to stack.\n";
 	std::cout << "2. Pop top of stack.\n";
 	std::cout << "3. Display contents of stack.\n";
 	std::cout << "4. Look at the top of stack.\n";
+	std::cout << "5. Quit.\n";
 
 	do 
 	{
 		std::cout << "Take action: ";
-		scanf_s("%d", &answer);
+		std::cin >> answer;
 
 		switch (answer)
 		{
@@ -224,20 +183,31 @@ int main(void)
 			break;
 
 		case 2:
-			elem = stack.pop();
-			
-			if (!stack.is_empty(stack.top_of_stack))
-				std::cout << "The poped element is: \n" << elem;
-			
+			if (!stack.is_empty())
+				std::cout << "The poped element is: " << stack.pop() << std::endl;
+			else
+				std::cout << "The stack is empty.\n";
+
 			break;
 
 		case 3:
-			stack.display_stack();
+			if (!stack.is_empty())
+				stack.display_stack();
+			else
+				std::cout << "The stack is empty.\n";
+
 			break;
 
 		case 4:
-			std::cout << "The top element is: \n" << stack.top();
+			if (!stack.is_empty())
+				std::cout << "The top element is: " << stack.top() << std::endl;
+			else
+				std::cout << "The stack is empty.\n";
+			
 			break;
+
+		case 5:
+			exit(0);
 		}
 
 	} while (answer);
