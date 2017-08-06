@@ -125,6 +125,10 @@ project.fragment.lock.json
 artifacts/
 **/Properties/launchSettings.json
 
+*.suo
+*.sln
+*.vcxproj
+*.vcxproj.filters
 *_i.c
 *_p.c
 *_i.h
