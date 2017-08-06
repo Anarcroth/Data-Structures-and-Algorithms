@@ -10,11 +10,16 @@
     <ClCompile Include="linked_list_stack.c">
       <Filter>Stack</Filter>
     </ClCompile>
-    <ClCompile Include="oop_linked_list_stack.cpp" />
+    <ClCompile Include="oop_linked_list_stack.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Stack">
       <UniqueIdentifier>{0ba57598-f8ac-4ac3-8e59-13e9864efc0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test">
+      <UniqueIdentifier>{47820d67-3b2d-46fb-a3ce-0885cf1f9ab2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

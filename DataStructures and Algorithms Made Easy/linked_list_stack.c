@@ -16,7 +16,7 @@ struct node
 	int key;
 };
 
-// Prototypes
+/** Prototypes */
 struct node* pop(struct node *stack, int *element);
 struct node* push(struct node *stack, int key);
 

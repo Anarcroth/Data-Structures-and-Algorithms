@@ -62,7 +62,7 @@ int de_queue(queue *q)
 	
 	if (is_queue_empty(q))
 	{
-		cout("%s", "Queue is empty");
+		std::cout << "%s", "Queue is empty";
 		return 0;
 	}
 	else
