@@ -4,7 +4,7 @@
 	Purpose:	Create linked list stack holding integers
 
 	@author:	Martin Nestorov
-	@version:	0.2 24/07/2017
+	@version:	0.2.2 24/07/2017
 */
 
 #include <stdlib.h>
@@ -17,14 +17,14 @@ struct node
 };
 
 /** Prototypes */
-struct node* pop(struct node *stack, int *element);
-struct node* push(struct node *stack, int key);
+static struct node* pop(struct node *stack, int *element);
+static struct node* push(struct node *stack, int key);
 
-void display_stack(struct node *stack);
-void delete_stack(struct node *stack);
+static void display_stack(struct node *stack);
+static void delete_stack(struct node *stack);
 
-int is_empty(struct node *stack);
-int top(struct node *stack);
+static int is_empty(struct node *stack);
+static int top(struct node *stack);
 
 /**
 	Allocates space and pushes new node element on top of stack 
@@ -33,7 +33,7 @@ int top(struct node *stack);
 	@param key		The value that is pushed on top
 	@return			Pointer to the new top of the stack
 */
-struct node* push(struct node *stack, int key)
+static struct node* push(struct node *stack, int key)
 {
 	struct node *temp = (struct node*)malloc(sizeof(struct node));
 
@@ -54,7 +54,7 @@ struct node* push(struct node *stack, int key)
 	@param *top		Pointer to the top of the stack
 	@return			The key at the top of stack
 */
-int top(struct node *stack)
+static int top(struct node *stack)
 {
 	return stack->key;
 }
@@ -66,11 +66,11 @@ int top(struct node *stack)
 	@param *element	Pointer to the element that will hold the top key of the stack
 	@return			Pointer to the new top of the stack
 */
-struct node* pop(struct node *stack, int *element)
+static struct node* pop(struct node *stack, int *element)
 {
 	if (is_empty(stack))
 	{
-		cout("The Stack is empty.\n");
+		printf("The Stack is empty.\n");
 
 		return NULL;
 	}
@@ -87,23 +87,23 @@ struct node* pop(struct node *stack, int *element)
 	@param *top		Pointer to the top of the stack
 	@return			No return value, display a string if the stack is empty
 */
-void display_stack(struct node *stack)
+static void display_stack(struct node *stack)
 {
 	if (!is_empty(stack))
 	{
-		cout("Stack: ");
+		printf("Stack: ");
 	
 		do
 		{
-			cout("%d ", stack->key);
+			printf("%d ", stack->key);
 			stack = stack->next;
 
 		} while (stack != NULL);
 		
-		cout("\n");
+		printf("\n");
 	}
 	else
-		cout("The Stack is is empty.\n");
+		printf("The Stack is is empty.\n");
 
 }
 
@@ -113,7 +113,7 @@ void display_stack(struct node *stack)
 	@param *top		Pointer to the top of the stack
 	@return			1 if the stack is empty, 0 if it is not
 */
-int is_empty(struct node *stack)
+static int is_empty(struct node *stack)
 {
 	return stack == NULL;
 }
@@ -123,7 +123,7 @@ int is_empty(struct node *stack)
 
 	@param *top		Pointer to the top of the stack
 */
-void delete_stack(struct node *stack)
+static void delete_stack(struct node *stack)
 {
 	if (!is_empty(stack))
 	{
@@ -143,59 +143,58 @@ void delete_stack(struct node *stack)
 
 	free(stack);
 }
-
+/*
 int main(void)
 {
 	struct node *stack = NULL;
 
 	int answer = 0, elem = 0;
 
-	cout("----- Menu -----\n");
+	printf("----- Linked List Stack Menu -----\n");
 
-	cout("1. Push new element to stack.\n");
-	cout("2. Pop top of stack.\n");
-	cout("3. Display contents of stack.\n");
-	cout("4. Look at the top of stack.\n");
-	cout("5. quit.\n");
+	printf("1. Push new element to stack.\n");
+	printf("2. Pop top of stack.\n");
+	printf("3. Display contents of stack.\n");
+	printf("4. Look at the top of stack.\n");
+	printf("5. Quit.\n");
 
 	do 
 	{
-		cout("Take action: ");
+		printf("Take action: ");
 		scanf_s("%d", &answer);
 
 		switch (answer)
 		{
 		case 1:
-			cout("Enter an element: ");
+			printf("Enter an element: ");
 			scanf_s("%d", &elem);
 
-			stack = push(stack, elem);
+			stack = push(&*stack, elem);
 			break;
 
 		case 2:
-			stack = pop(stack, &elem);
+			stack = pop(&*stack, &elem);
 			
-			if (!is_empty(stack))
-				cout("The poped element is: %d\n", elem);
+			if (!is_empty(&*stack))
+				printf("The poped element is: %d\n", elem);
 			
 			break;
 
 		case 3:
-			display_stack(stack);
+			display_stack(&*stack);
 			break;
 
 		case 4:
-			cout("The top element is: %d\n", top(stack));
+			printf("The top element is: %d\n", top(&*stack));
 			break;
 
 		case 5:
-			delete_stack(stack);
+			delete_stack(&*stack);
 
 			exit(0);
-			break;
 		}
 	
 	} while (answer);
 
 	return 0;
-}
+}*/

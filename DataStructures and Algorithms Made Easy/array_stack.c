@@ -4,7 +4,7 @@
 	Purpose:	Create dyamic array stack holding integers
 
 	@author:	Martin Nestorov
-	@version:	0.1 24/07/2017
+	@version:	0.2.2 24/07/2017
 */
 
 #include <stdlib.h>
@@ -19,24 +19,24 @@ struct array_stack
 };
 
 /** Prototypes */
-void double_stack_capacity(struct array_stack *stack);
-void display_stack(struct array_stack *stack);
-void push(struct array_stack *stack, int key);
-void delete_stack(struct array_stack *stack);
+static void double_stack_capacity(struct array_stack *stack);
+static void display_stack(struct array_stack *stack);
+static void push(struct array_stack *stack, int key);
+static void delete_stack(struct array_stack *stack);
 
-int is_empty(struct array_stack *stack);
-int is_full(struct array_stack *stack);
-int pop(struct array_stack *stack);
-int top(struct array_stack *stack);
+static int is_empty(struct array_stack *stack);
+static int is_full(struct array_stack *stack);
+static int pop(struct array_stack *stack);
+static int top(struct array_stack *stack);
 
-struct array_stack *create_stack();
+static struct array_stack *create_stack();
 
 /**
 	Allocate space and create a new array stack
 
 	@return		The initial stack
 */
-struct array_stack *create_stack()
+static struct array_stack *create_stack()
 {
 	struct array_stack *temp_stack = (struct array_stack*)malloc(sizeof(struct array_stack));
 
@@ -62,7 +62,7 @@ struct array_stack *create_stack()
 	@param *stack	Pointer to the stack structure
 	@return			1 if the stack is full, 0 if it is not
 */
-int is_full(struct array_stack *stack)
+static int is_full(struct array_stack *stack)
 {
 	return stack->top == stack->capacity - 1;
 }
@@ -73,7 +73,7 @@ int is_full(struct array_stack *stack)
 	@param *stack	Pointer to the stack structure
 	@return			1 if the stack is empty, 0 if it is not	
 */
-int is_empty(struct array_stack *stack)
+static int is_empty(struct array_stack *stack)
 {
 	return stack->top == -1;
 }
@@ -83,7 +83,7 @@ int is_empty(struct array_stack *stack)
 	
 	@param *stack	Pointer to the stack structure
 */
-void double_stack_capacity(struct array_stack *stack)
+static void double_stack_capacity(struct array_stack *stack)
 {
 	stack->capacity *= 2;
 	stack->array = (int*)realloc(stack->array, stack->capacity * sizeof(int));
@@ -95,7 +95,7 @@ void double_stack_capacity(struct array_stack *stack)
 	@param *stack	Pointer to the stack structure
 	@param key		The value that is pushed on top
 */
-void push(struct array_stack *stack, int key)
+static void push(struct array_stack *stack, int key)
 {
 	if (is_full(stack))
 		double_stack_capacity(stack);
@@ -110,11 +110,11 @@ void push(struct array_stack *stack, int key)
 	@param *stack	Pointer to the stack structure
 	@return			The top element of the stack
 */
-int top(struct array_stack *stack)
+static int top(struct array_stack *stack)
 {
 	if (is_empty(stack)) 
 	{
-		cout("The stack is empty.");
+		printf("The stack is empty.");
 
 		return 0;
 	}
@@ -128,11 +128,11 @@ int top(struct array_stack *stack)
 	@param *stack	Pointer to the stack structure
 	@return			Remove the top value of the stack and return it
 */
-int pop(struct array_stack *stack)
+static int pop(struct array_stack *stack)
 {
 	if (is_empty(stack))
 	{
-		cout("The stack is empty.");
+		printf("The stack is empty.");
 
 		return 0;
 	}
@@ -147,16 +147,16 @@ int pop(struct array_stack *stack)
 
 	@param *stack	Pointer to the strack structure
 */
-void display_stack(struct array_stack *stack)
+static void display_stack(struct array_stack *stack)
 {
 	if (!is_empty(stack))
 	{
-		cout("Stack: ");
+		printf("Stack: ");
 
 		for (int elem = stack->num_elements - 1; elem > -1; elem--)
-			cout("%d ", stack->array[elem]);
+			printf("%d ", stack->array[elem]);
 
-		cout("\n");
+		printf("\n");
 	}
 }
 
@@ -165,7 +165,7 @@ void display_stack(struct array_stack *stack)
 
 	@param *stack	Pointer to the stack structure
 */
-void delete_stack(struct array_stack *stack)
+static void delete_stack(struct array_stack *stack)
 {
 	if (!is_empty(stack))
 		if (stack->array)
@@ -173,61 +173,60 @@ void delete_stack(struct array_stack *stack)
 		
 	free(stack);
 }
-
+/*
 int main(void)
 {
 	struct array_stack *stack = NULL;
 
 	int answer = 0, elem = 0;
 
-	cout("----- Menu -----\n");
+	printf("----- Array Stack Menu -----\n");
 
-	cout("1. Push new element to stack.\n");
-	cout("2. Pop top of stack.\n");
-	cout("3. Display contents of stack.\n");
-	cout("4. Look at the top of stack.\n");
-	cout("5. quit.\n");
+	printf("1. Push new element to stack.\n");
+	printf("2. Pop top of stack.\n");
+	printf("3. Display contents of stack.\n");
+	printf("4. Look at the top of stack.\n");
+	printf("5. Quit.\n");
 	
 	stack = create_stack();
 
 	do 
 	{
-		cout("Take action: ");
+		printf("Take action: ");
 		scanf_s("%d", &answer);
 
 		switch (answer)
 		{
 		case 1:
-			cout("Enter an element: ");
+			printf("Enter an element: ");
 			scanf_s("%d", &elem);
 
-			push(stack, elem);
+			push(&*stack, elem);
 			break;
 
 		case 2:
-			elem = pop(stack);
+			elem = pop(&*stack);
 			
-			if (!is_empty(stack))
-				cout("\nThe poped element is: %d", elem);
+			if (!is_empty(&*stack))
+				printf("The poped element is: %d\n", elem);
 			
 			break;
 
 		case 3:
-			display_stack(stack);
+			display_stack(&*stack);
 			break;
 			
 		case 4:
-			cout("The top element is: %d", top(stack));
+			printf("The top element is: %d\n", top(&*stack));
 			break;
 
 		case 5:
-			delete_stack(stack);
+			delete_stack(&*stack);
 
 			exit(0);
-			break;
 		}
 	
 	} while (answer);
 
 	return 0;
-}
+}*/
