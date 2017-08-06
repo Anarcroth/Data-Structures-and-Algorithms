@@ -27,11 +27,11 @@ int is_empty(struct node *stack);
 int top(struct node *stack);
 
 /**
-	Allocates space and pushes new node element on top of stack. 
+	Allocates space and pushes new node element on top of stack 
 
-	@param *top		Pointer to the top of the stack.
-	@param key		The value that is pushed on top.
-	@return			Pointer to the new top of the stack.
+	@param *top		Pointer to the top of the stack
+	@param key		The value that is pushed on top
+	@return			Pointer to the new top of the stack
 */
 struct node* push(struct node *stack, int key)
 {
@@ -49,10 +49,10 @@ struct node* push(struct node *stack, int key)
 }
 
 /**
-	Get the key from the top of the stack.
+	Get the key from the top of the stack
 
-	@param *top		Pointer to the top of the stack.
-	@return			The key at the top of stack.
+	@param *top		Pointer to the top of the stack
+	@return			The key at the top of stack
 */
 int top(struct node *stack)
 {
@@ -60,12 +60,11 @@ int top(struct node *stack)
 }
 
 /**
-	Popes the top node of the stack and assigns the top
-	element of the stack to the element varaible.
+	Popes the top node of the stack and assigns the top	element of the stack to the element varaible
 	
-	@param *top		Pointer to the top of the stack.
-	@param *element	Pointer to the element that will hold the top key of the stack.
-	@return			Pointer to the new top of the stack.
+	@param *top		Pointer to the top of the stack
+	@param *element	Pointer to the element that will hold the top key of the stack
+	@return			Pointer to the new top of the stack
 */
 struct node* pop(struct node *stack, int *element)
 {
@@ -83,10 +82,10 @@ struct node* pop(struct node *stack, int *element)
 }
 
 /**
-	Display the whole contents of the stack.
+	Display the whole contents of the stack
 
-	@param *top		Pointer to the top of the stack.
-	@return			No return value, display a string if the stack is empty.
+	@param *top		Pointer to the top of the stack
+	@return			No return value, display a string if the stack is empty
 */
 void display_stack(struct node *stack)
 {
@@ -109,10 +108,10 @@ void display_stack(struct node *stack)
 }
 
 /**
-	Check if the stack is empty.
+	Check if the stack is empty
 
-	@param *top		Pointer to the top of the stack.
-	@return			1 if the stack is empty, 0 if it is not.
+	@param *top		Pointer to the top of the stack
+	@return			1 if the stack is empty, 0 if it is not
 */
 int is_empty(struct node *stack)
 {
@@ -120,10 +119,9 @@ int is_empty(struct node *stack)
 }
 
 /**
-	Delete the whole stack structure.
+	Delete the whole stack structure
 
-	@param *top		Pointer to the top of the stack.
-	@noreturn
+	@param *top		Pointer to the top of the stack
 */
 void delete_stack(struct node *stack)
 {

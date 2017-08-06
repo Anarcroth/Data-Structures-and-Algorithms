@@ -18,7 +18,7 @@ struct array_stack
 	int top;
 };
 
-// Prototypes
+/** Prototypes */
 void double_stack_capacity(struct array_stack *stack);
 void display_stack(struct array_stack *stack);
 void push(struct array_stack *stack, int key);
@@ -32,10 +32,9 @@ int top(struct array_stack *stack);
 struct array_stack *create_stack();
 
 /**
-	Allocate space and create the array stack.
+	Allocate space and create a new array stack
 
-	@noparam
-	@return		The initial stack.
+	@return		The initial stack
 */
 struct array_stack *create_stack()
 {
@@ -58,10 +57,10 @@ struct array_stack *create_stack()
 }
 
 /**
-	Check if stack is full.
+	Check if stack is full
 
-	@param *stack	Pointer to the stack structure.
-	@return			1 if the stack is full, 0 if it is not.
+	@param *stack	Pointer to the stack structure
+	@return			1 if the stack is full, 0 if it is not
 */
 int is_full(struct array_stack *stack)
 {
@@ -69,10 +68,10 @@ int is_full(struct array_stack *stack)
 }
 
 /**
-	Check if stack is empty.
+	Check if stack is empty
 	
-	@param *stack	Pointer to the stack structure.
-	@return			1 if the stack is empty, 0 if it is not.	
+	@param *stack	Pointer to the stack structure
+	@return			1 if the stack is empty, 0 if it is not	
 */
 int is_empty(struct array_stack *stack)
 {
@@ -80,10 +79,9 @@ int is_empty(struct array_stack *stack)
 }
 
 /**
-	Double stacks capacity.
+	Double stacks capacity
 	
-	@param *stack	Pointer to the stack structure.
-	@noreturn
+	@param *stack	Pointer to the stack structure
 */
 void double_stack_capacity(struct array_stack *stack)
 {
@@ -92,11 +90,10 @@ void double_stack_capacity(struct array_stack *stack)
 }
 
 /**
-	Push an element on the top of the stack array.
+	Push an element on the top of the stack array
 
-	@param *stack	Pointer to the stack structure.
-	@param key		The value that is pushed on top.
-	@noreturn
+	@param *stack	Pointer to the stack structure
+	@param key		The value that is pushed on top
 */
 void push(struct array_stack *stack, int key)
 {
@@ -108,10 +105,10 @@ void push(struct array_stack *stack, int key)
 }
 
 /**
-	Get the value at the top of stack.
+	Get the value at the top of stack
 
-	@param *stack	Pointer to the stack structure.
-	@return			The top element of the stack.
+	@param *stack	Pointer to the stack structure
+	@return			The top element of the stack
 */
 int top(struct array_stack *stack)
 {
@@ -126,10 +123,10 @@ int top(struct array_stack *stack)
 }
 
 /**
-	Remove the top value of the stack.
+	Remove the top value of the stack
 
-	@param *stack	Pointer to the stack structure.
-	@return			Remove the top value of the stack and return it.
+	@param *stack	Pointer to the stack structure
+	@return			Remove the top value of the stack and return it
 */
 int pop(struct array_stack *stack)
 {
@@ -146,10 +143,9 @@ int pop(struct array_stack *stack)
 }
 
 /**
-	Display the contents of stack.
+	Display the contents of stack
 
-	@param *stack	Pointer to the strack structure.
-	@noreturn
+	@param *stack	Pointer to the strack structure
 */
 void display_stack(struct array_stack *stack)
 {
@@ -165,10 +161,9 @@ void display_stack(struct array_stack *stack)
 }
 
 /**
-	Delete the whole stack structure.
+	Delete the whole stack structure
 
-	@param *stack	Pointer to the stack structure.
-	@noreturn
+	@param *stack	Pointer to the stack structure
 */
 void delete_stack(struct array_stack *stack)
 {
