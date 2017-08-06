@@ -38,21 +38,21 @@ private:
 	int pop(node *top);
 	int top(node *top);
 
-	node *top;
+	node *top_of_stack;
 };
 
-stack::stack() : top(NULL) { }
+stack::stack() : top_of_stack(NULL) { }
 
 void stack::push(int key)
 {
-	if (is_empty(top))
+	if (is_empty(top_of_stack))
 	{
-		top = new node;
-		top->key = key;
-		top->next = NULL;
+		top_of_stack = new node;
+		top_of_stack->key = key;
+		top_of_stack->next = NULL;
 	}
 	else
-		push(top, key);
+		push(top_of_stack, key);
 }
 
 void stack::push(node *top, int key)
@@ -66,7 +66,7 @@ void stack::push(node *top, int key)
 
 int stack::pop()
 {
-	return pop(top);
+	return pop(top_of_stack);
 }
 
 int stack::pop(node *top)
@@ -78,6 +78,19 @@ int stack::pop(node *top)
 
 		return key;
 	}
+}
+
+int stack::top()
+{
+	return top(top_of_stack);
+}
+
+int stack::top(node *top_of_stack)
+{
+	if (!is_empty(top_of_stack))
+		return top_of_stack->key;
+	else
+		return 0;
 }
 
 //TODO make it templized and also so that one can initialize multiple stacks and not only one, so code restructure.
@@ -93,6 +106,58 @@ stack::~stack()
 
 int main(void)
 {
+	stack stack;
 
+	int answer = 0, elem = 0;
+
+	std::cout << "----- Menu -----\n";
+
+	std::cout << "1. Push new element to stack.\n";
+	std::cout << "2. Pop top of stack.\n";
+	std::cout << "3. Display contents of stack.\n";
+	std::cout << "4. Look at the top of stack.\n";
+	std::cout << "5. quit.\n";
+
+	do 
+	{
+		std::cout << "Take action: ";
+		scanf_s("%d", &answer);
+
+		switch (answer)
+		{
+		case 1:
+			cout("Enter an element: ");
+			scanf_s("%d", &elem);
+
+			stack.push(elem);
+			break;
+
+		case 2:
+			stack = pop(stack, &elem);
+			
+			if (!is_empty(stack))
+				cout("The poped element is: %d\n", elem);
+			
+			break;
+
+		case 3:
+			display_stack(stack);
+			break;
+
+		case 4:
+			cout("The top element is: %d\n", top(stack));
+			break;
+
+		case 5:
+			delete_stack(stack);
+
+			exit(0);
+			break;
+		}
+	
+	} while (answer);
+
+
+	
 	return 0;
 }

@@ -10,6 +10,7 @@
     <ClCompile Include="linked_list_stack.c">
       <Filter>Stack</Filter>
     </ClCompile>
+    <ClCompile Include="oop_linked_list_stack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Stack">

@@ -152,6 +152,7 @@
       <FileType>CppCode</FileType>
     </ClCompile>
     <ClCompile Include="linked_list_stack.c" />
+    <ClCompile Include="oop_linked_list_stack.cpp" />
     <ClCompile Include="Queue.cpp" />
     <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="LinkedList.cpp" />

@@ -117,7 +117,7 @@ int top(struct array_stack *stack)
 {
 	if (is_empty(stack)) 
 	{
-		printf("The stack is empty.");
+		cout("The stack is empty.");
 
 		return 0;
 	}
@@ -135,7 +135,7 @@ int pop(struct array_stack *stack)
 {
 	if (is_empty(stack))
 	{
-		printf("The stack is empty.");
+		cout("The stack is empty.");
 
 		return 0;
 	}
@@ -155,12 +155,12 @@ void display_stack(struct array_stack *stack)
 {
 	if (!is_empty(stack))
 	{
-		printf("Stack: ");
+		cout("Stack: ");
 
 		for (int elem = stack->num_elements - 1; elem > -1; elem--)
-			printf("%d ", stack->array[elem]);
+			cout("%d ", stack->array[elem]);
 
-		printf("\n");
+		cout("\n");
 	}
 }
 
@@ -185,25 +185,25 @@ int main(void)
 
 	int answer = 0, elem = 0;
 
-	printf("----- Menu -----\n");
+	cout("----- Menu -----\n");
 
-	printf("1. Push new element to stack.\n");
-	printf("2. Pop top of stack.\n");
-	printf("3. Display contents of stack.\n");
-	printf("4. Look at the top of stack.\n");
-	printf("5. quit.\n");
+	cout("1. Push new element to stack.\n");
+	cout("2. Pop top of stack.\n");
+	cout("3. Display contents of stack.\n");
+	cout("4. Look at the top of stack.\n");
+	cout("5. quit.\n");
 	
 	stack = create_stack();
 
 	do 
 	{
-		printf("Take action: ");
+		cout("Take action: ");
 		scanf_s("%d", &answer);
 
 		switch (answer)
 		{
 		case 1:
-			printf("Enter an element: ");
+			cout("Enter an element: ");
 			scanf_s("%d", &elem);
 
 			push(stack, elem);
@@ -213,7 +213,7 @@ int main(void)
 			elem = pop(stack);
 			
 			if (!is_empty(stack))
-				printf("\nThe poped element is: %d", elem);
+				cout("\nThe poped element is: %d", elem);
 			
 			break;
 
@@ -222,7 +222,7 @@ int main(void)
 			break;
 			
 		case 4:
-			printf("The top element is: %d", top(stack));
+			cout("The top element is: %d", top(stack));
 			break;
 
 		case 5:
