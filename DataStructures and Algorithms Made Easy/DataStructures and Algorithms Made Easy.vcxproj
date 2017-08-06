@@ -22,7 +22,7 @@
     <ProjectGuid>{132ACE5A-4E92-415F-A90B-1A2552CD799D}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>DataStructuresandAlgorithmsMadeEasy</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -104,6 +104,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,9 +148,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="array_stack.c">
+      <FileType>CppCode</FileType>
+    </ClCompile>
+    <ClCompile Include="linked_list_stack.c" />
+    <ClCompile Include="oop_linked_list_stack.cpp" />
+    <ClCompile Include="Queue.cpp" />
     <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="LinkedList.cpp" />
-    <ClCompile Include="Stack.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

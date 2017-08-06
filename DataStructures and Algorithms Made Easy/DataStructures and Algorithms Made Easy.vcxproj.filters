@@ -1,28 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="BinaryTree.cpp" />
+    <ClCompile Include="array_stack.c">
+      <Filter>Stack</Filter>
+    </ClCompile>
+    <ClCompile Include="linked_list_stack.c">
+      <Filter>Stack</Filter>
+    </ClCompile>
+    <ClCompile Include="oop_linked_list_stack.cpp">
+      <Filter>Stack</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkedList.cpp">
+      <Filter>LinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="Queue.cpp">
+      <Filter>Queue</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LinkedList.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Stack.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BinaryTree.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <Filter Include="Stack">
+      <UniqueIdentifier>{0ba57598-f8ac-4ac3-8e59-13e9864efc0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LinkedList">
+      <UniqueIdentifier>{476c84c4-2fc9-45f6-a177-20d20a8e4cbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Queue">
+      <UniqueIdentifier>{ebb3282b-fdf4-44d4-bc14-de0caf6627a2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
