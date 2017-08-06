@@ -1,7 +1,11 @@
 /*
 	COS: FDS
 	array_stack.c
+<<<<<<< HEAD
 	Purpose:	Create linked list stack holding integers
+=======
+	Purpose:	Create dyamic array stack holding integers
+>>>>>>> 000929b... squashed last 9 commits
 
 	@author:	Martin Nestorov
 	@version:	0.2.1 24/07/2017
@@ -153,7 +157,11 @@ stack::~stack()
 {
 	delete_stack();
 }
+<<<<<<< HEAD
 /*
+=======
+
+>>>>>>> 000929b... squashed last 9 commits
 int main(void)
 {
 	stack stack;
@@ -213,4 +221,8 @@ int main(void)
 	} while (answer);
 
 	return 0;
+<<<<<<< HEAD
 }*/
+=======
+}
+>>>>>>> 000929b... squashed last 9 commits
