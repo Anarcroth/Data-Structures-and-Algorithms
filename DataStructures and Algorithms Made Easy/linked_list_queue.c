@@ -4,7 +4,7 @@
 	Purpose: Create linked list queue holding integers
 	
 	@author:	Martin Nestorov
-	@version:	0.1.0 12.08.2017
+	@version:	0.1.3 12.08.2017
 */
 
 #include <stdio.h>
@@ -17,124 +17,138 @@ struct node
 
 struct queue
 {
-	int num_elements;
-
 	struct node *front;
 	struct node *end;
 };
 
 /** Prototypes */
+static struct queue *en_queue(struct queue *que, int key);
+static struct queue *de_queue(struct queue *que);
 static struct queue *create_queue();
 
-static struct node *create_new_node(int key);
-static int de_queue(struct queue *q);
+static void display_queue(struct queue *que);
+static void delete_queue(struct queue *que);
 
-static void en_queue(struct queue *q, int key);
-static void delete_queue(struct queue *q);
-
-static int is_empty(struct queue *q);
-
+/**
+	Initialize the beginning of the queue
+*/
 static struct queue *create_queue()
 {
-	struct queue *q = (struct queue*)malloc(sizeof(struct queue));
+	struct queue *que;
 
-	if (q == NULL)
-		return NULL;
-	
-	q->front = q->end = NULL;
+	que = (struct queue*)malloc(sizeof(struct queue));
 
-	q->num_elements == 0;
+	que->end = NULL;
+	que->front = NULL;
 
-	return q;
+	return que;
 }
 
-static struct node *create_new_node(int key)
-{
-	struct node *temp = (struct node*)malloc(sizeof(struct node));
-	
-	temp->key = key;
-	temp->next = NULL;
+/**
+	Append a new element to the end of the queue
 
-	return temp;
-}
-
-static int is_empty(struct queue *q)
-{
-	return q->end == NULL;
-}
-
-static void en_queue(struct queue *q, int key)
-{
-	struct node *temp = create_new_node(key);
-
-	if (is_empty(q))
-	{
-		q->front = q->end = temp;
-
-		q->num_elements++;
-
-		return;
-	}
-
-	q->end->next = temp;
-	q->end = temp;
-
-	q->num_elements++;
-}
-
-static int de_queue(struct queue *q)
-{
-	if (is_empty(q))
-	{
-		printf("Queue is empty");
-		return 0;
-	}
-
-	struct node* temp = q->front;
-
-	q->front = q->front->next;
-
-	if (q->front == NULL)
-		q->end == NULL;
-
-	q->num_elements--;
-
-	return temp->key;
-}
-
-static void delete_queue(struct queue *q)
+	@param *que		A pointer to the queue structure.
+	@param key		The value to be en queued.
+	@return			The pointer to the queue.
+*/
+static struct queue *en_queue(struct queue *que, int key)
 {
 	struct node *temp;
 
-	while (!is_empty(q))
+	temp = (struct node*)malloc(sizeof(struct node));
+
+	temp->key = key;
+	temp->next = NULL;
+	
+	if (que->front == NULL)
+	
+		que->front = que->end = temp;
+	
+	else 
 	{
-		temp = q;
-		q = q->front;
+		que->end->next = temp;
+		que->end = temp;
+	}
+
+	return que;
+}
+
+/**
+	Remove an element at the front of the queue
+
+	@param *que		A pointer to the queue structure.
+	@return			The pointer to the queue.
+*/
+static struct queue *de_queue(struct queue *que)
+{
+	if (que->front == NULL)
+	
+		printf("The Queue is Empty!\n");
+	
+	else
+	{
+		struct node *temp = que->front;
+		que->front = que->front->next;
+
+		printf("The de queued element is: %d\n", temp->key);
+
 		free(temp);
 	}
 
-	free(q);
+	return que;
 }
 
-static void display_queue(struct queue *q)
+/**
+	Delete the whole queue structure
+
+	@param *que		A pointer to the queue structure.
+*/
+static void delete_queue(struct queue *que)
 {
 	struct node *temp;
-	
-	while (q->num_elements > 0)
+
+	while (que->front != NULL)
 	{
-		temp = q;
+		temp = que->front;
+		que->front = que->front->next;
 
-		q = q->end->next;
-
-		printf("%d ", temp->key);
-
-		q->num_elements--;
+		free(temp);
 	}
+
+	free(que);
 }
 
+/**
+	Display the whole queue structure
+
+	@param *que		A pointer to the queue structure.
+*/
+static void display_queue(struct queue *que)
+{
+	struct node *temp;
+
+	if (que->front == NULL)
+
+		printf("The Queue is Empty!\n");
+
+	else 
+	{
+		temp = que->front;
+		
+		while (temp->next != NULL) 
+		{
+			printf("%d--->", temp->key);
+			
+			temp = temp->next;
+		}
+
+		printf("%d--->NULL\n", temp->key);
+	}
+}
+/*
 int main()
 {
-	struct queue *que = create_queue();
+	struct queue *queue;
 
 	int answer = 0, elem = 0;
 
@@ -143,8 +157,9 @@ int main()
 	printf("1. EnQueue new element to queue.\n");
 	printf("2. DeQueue end of queue.\n");
 	printf("3. Display contents of queue.\n");
-	printf("4. Look at the front of queue.\n");
-	printf("5. Quit.\n");
+	printf("4. Quit.\n");
+
+	queue = create_queue(&queue);
 
 	do
 	{
@@ -157,32 +172,24 @@ int main()
 			printf("Enter an element: ");
 			scanf_s("%d", &elem);
 
-			en_queue(&*que, elem);
+			queue = en_queue(&*queue, elem);
 			break;
 
 		case 2:
-			elem = de_queue(&*que);
-
-			if (!is_empty(&*que))
-				printf("The DeQueued element is: %d\n", elem);
+			queue = de_queue(&*queue);
 
 			break;
 
 		case 3:
-			display_queue(que);
+			display_queue(&*queue);
 			break;
 
 		case 4:
-			//printf("The top element is: %d\n", top(&*que));
-			break;
-
-		case 5:
-			delete_queue(&*que);
-
+			delete_queue(&*queue);
 			exit(0);
 		}
 
 	} while (answer);
 
 	return 0;
-}
+}*/
