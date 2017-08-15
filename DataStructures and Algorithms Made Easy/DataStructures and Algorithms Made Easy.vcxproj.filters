@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="BinaryTree.cpp" />
+    <ClCompile Include="array_stack.c">
+      <Filter>Stack</Filter>
+    </ClCompile>
+    <ClCompile Include="linked_list_stack.c">
+      <Filter>Stack</Filter>
+    </ClCompile>
+    <ClCompile Include="oop_linked_list_stack.cpp">
+      <Filter>Stack</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkedList.cpp">
+      <Filter>LinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="linked_list_queue.c">
+      <Filter>Queue</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Stack">
+      <UniqueIdentifier>{0ba57598-f8ac-4ac3-8e59-13e9864efc0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LinkedList">
+      <UniqueIdentifier>{476c84c4-2fc9-45f6-a177-20d20a8e4cbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Queue">
+      <UniqueIdentifier>{ebb3282b-fdf4-44d4-bc14-de0caf6627a2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
