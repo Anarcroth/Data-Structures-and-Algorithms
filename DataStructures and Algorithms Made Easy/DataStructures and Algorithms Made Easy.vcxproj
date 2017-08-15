@@ -148,8 +148,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="c_dynamic_stack.c" />
-    <ClCompile Include="Queue.cpp" />
+    <ClCompile Include="array_stack.c">
+      <FileType>CppCode</FileType>
+    </ClCompile>
+    <ClCompile Include="linked_list_stack.c" />
+    <ClCompile Include="oop_linked_list_stack.cpp" />
+    <ClCompile Include="linked_list_queue.c" />
     <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="LinkedList.cpp" />
   </ItemGroup>

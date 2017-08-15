@@ -80,6 +80,11 @@ dkms.conf
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+*.vs
+.vs/
+*.db
+*.VC.db
+
 # User-specific files
 *.suo
 *.user
@@ -125,6 +130,10 @@ project.fragment.lock.json
 artifacts/
 **/Properties/launchSettings.json
 
+*.suo
+*.sln
+*.vcxproj
+*.vcxproj.filters
 *_i.c
 *_p.c
 *_i.h
@@ -367,3 +376,9 @@ __pycache__/
 # should be stored in the .pubxml.user file.
 
 # End of https://www.gitignore.io/api/c,c++,visualstudio
+.vs/DataStructures and Algorithms Made Easy/v15/.suo
+*.suo
+*.db
+*.ipch
+*.vs
+*.sqlite
