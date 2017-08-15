@@ -17,6 +17,9 @@
     <ClCompile Include="linked_list_queue.c">
       <Filter>Queue</Filter>
     </ClCompile>
+    <ClCompile Include="oop_linked_list_queue.cpp">
+      <Filter>Queue</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Stack">
