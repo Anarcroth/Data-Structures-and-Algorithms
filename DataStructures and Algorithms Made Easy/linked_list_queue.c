@@ -1,7 +1,7 @@
 /**
 	COS: FDS
 	linked_list_queue.c
-	Purpose: Create linked list queue holding integers
+	Purpose: 	Create linked list queue holding integers
 	
 	@author:	Martin Nestorov
 	@version:	0.1.3 12.08.2017

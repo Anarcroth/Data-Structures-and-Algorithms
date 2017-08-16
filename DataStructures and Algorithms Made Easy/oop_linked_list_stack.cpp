@@ -1,11 +1,7 @@
 /*
 	COS: FDS
 	array_stack.c
-<<<<<<< HEAD
-	Purpose:	Create dyamic array stack holding integers
-=======
 	Purpose:	Create linked list stack holding integers
->>>>>>> ea170fd6fecdde768a8263207587d6f65b75def1
 
 	@author:	Martin Nestorov
 	@version:	0.2.1 24/07/2017
@@ -157,11 +153,8 @@ stack::~stack()
 {
 	delete_stack();
 }
-<<<<<<< HEAD
 
-=======
 /*
->>>>>>> ea170fd6fecdde768a8263207587d6f65b75def1
 int main(void)
 {
 	stack stack;
@@ -221,8 +214,4 @@ int main(void)
 	} while (answer);
 
 	return 0;
-<<<<<<< HEAD
-}
-=======
 }*/
->>>>>>> ea170fd6fecdde768a8263207587d6f65b75def1
