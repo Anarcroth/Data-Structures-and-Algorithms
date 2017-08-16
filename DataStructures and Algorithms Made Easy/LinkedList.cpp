@@ -6,14 +6,14 @@ struct node
 	node *next;
 };
 
-class list
+class linked_list
 {
 private:
 	node *head, *tail;
 
 public:
-	list() : head(NULL), tail(NULL)
-	{ }
+	linked_list();
+	~linked_list();
 
 	void createnode(int value);
 
@@ -30,11 +30,13 @@ public:
 	void delete_position(int pos);
 };
 
+linked_list::linked_list() : head(NULL), tail(NULL) { }
+
 /*
  * Create either the beginning of the list,
  * or insert a new node to it.
  */
-void list::createnode(int value)
+void linked_list::createnode(int value)
 {
 	node *temp = new node;
 	temp->data = value;
@@ -60,7 +62,7 @@ void list::createnode(int value)
  * Display every node from the HEAD.
  * The HEAD is the beginning
  */
-void list::display()
+void linked_list::display()
 {
 	node *temp = new node;
 	temp = head; // Use a temp node to traverse the list.
@@ -77,7 +79,7 @@ void list::display()
  * and push the current head one position
  * bellow.
  */
-void list::insert_start(int value)
+void linked_list::insert_start(int value)
 {
 	node *temp = new node;
 	temp->data = value;
@@ -91,7 +93,7 @@ void list::insert_start(int value)
  * and is deleted, while the previous
  * node becomes the tail of the list.
  */
-void list::delete_last()
+void linked_list::delete_last()
 {
 	node *current = new node;
 	node *previous = new node;
@@ -114,7 +116,7 @@ void list::delete_last()
  * where the temp node holds the value
  * we want to insert.
  */
-void list::insert_position(int pos, int value)
+void linked_list::insert_position(int pos, int value)
 {
 	node *previous = new node;
 	node *current = new node;
@@ -145,7 +147,7 @@ void list::insert_position(int pos, int value)
 /*
  * Delete the HEAD of the list.
  */
-void list::delete_first()
+void linked_list::delete_first()
 {
 	node *temp = new node;
 	temp = head;
@@ -158,7 +160,7 @@ void list::delete_first()
  * For a specified position, find that
  * node and delete it from the list.
  */
-void list::delete_position(int pos)
+void linked_list::delete_position(int pos)
 {
 	node *current = new node;
 	node *previous = new node;
@@ -175,7 +177,7 @@ void list::delete_position(int pos)
 
 	delete current;
 }
-
+/*
 int main()
 {
 	list l_list;
@@ -233,4 +235,4 @@ int main()
 	system("pause");
 	
 	return 0;
-}
+}*/
