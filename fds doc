@@ -47,7 +47,7 @@
 
 *Linked Lists vs. Arrays* - Both linked lists and arrays do fairly similar things, but there are several fundamental differences between the two.
 
-**--Arrays--**
+**--- 1.1 Arrays ---**
 
 >*Arrays*  allocate an entire memory block to hold the elements. The first element in an array always has an index of *0 (zero)*, and if the array has *n* elements the last element will have the index *n - 1*. 
 
@@ -289,7 +289,31 @@ Space Complexity: **O(n)**
 #####Basic Queue methods
 
 ~~~c
-void en_queue(queue *q, int key)
-int de_queue(queue *q)
-void delete_queue(queue *q)
+struct queue *en_queue(struct queue *que, int key);
+struct queue *de_queue(struct queue *que);
+struct queue *create_queue();
+
+void display_queue(struct queue *que);
+void delete_queue(struct queue *que);
 ~~~
+
+---
+####Useful Links: 
+https://stackoverflow.com/questions/2229498/passing-by-reference-in-c
+
+https://stackoverflow.com/questions/13654138/
+
+what-exactly-is-the-difference-between-pass-by-reference-in-c-and-in-c
+exit(EXIT_FAILURE);
+http://
+
+www.guideforschool.com/625348-memory-address-calculation-in-an-array/
+"the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the caesium 133 atom"
+
+erowid.org
+
+stackoverflow.com/admin.php
+
+https://wildlyinaccurate.com/a-hackers-guide-to-git/#tree-objects
+
+---
