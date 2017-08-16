@@ -3,6 +3,7 @@
 	array_stack.c
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	Purpose:	Create linked list stack holding integers
 =======
 	Purpose:	Create dyamic array stack holding integers
@@ -10,6 +11,9 @@
 =======
 	Purpose:	Create linked list stack holding integers
 >>>>>>> 052aeeb... Fix branch files and structure
+=======
+	Purpose:	Create linked list stack holding integers
+>>>>>>> 1384c68... Added stack files
 
 	@author:	Martin Nestorov
 	@version:	0.2.1 24/07/2017
@@ -163,6 +167,7 @@ stack::~stack()
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*
 =======
 
@@ -171,6 +176,10 @@ stack::~stack()
 
 /*
 >>>>>>> 052aeeb... Fix branch files and structure
+=======
+
+/*
+>>>>>>> 1384c68... Added stack files
 int main(void)
 {
 	stack stack;
@@ -232,6 +241,7 @@ int main(void)
 	return 0;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 }*/
 =======
 }
@@ -239,3 +249,6 @@ int main(void)
 =======
 }*/
 >>>>>>> 052aeeb... Fix branch files and structure
+=======
+}*/
+>>>>>>> 1384c68... Added stack files

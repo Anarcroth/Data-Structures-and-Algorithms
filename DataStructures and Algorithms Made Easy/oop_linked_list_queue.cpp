@@ -4,12 +4,17 @@
 	Purpose: 	Create a dynamic object oriented linked list queue
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	@author: Martin Nestorov
 	@version: 0.1.2 15/08/2017
 =======
 	@author: 	Martin Nestorov
 	@version: 	0.1.0 15/08/2017
 >>>>>>> 052aeeb... Fix branch files and structure
+=======
+	@author: 	Martin Nestorov
+	@version: 	0.1.0 15/08/2017
+>>>>>>> 1384c68... Added stack files
 */
 
 #include <iostream>
@@ -27,9 +32,14 @@ public:
 	~Queue();
 
 	void en_queue(int key);
+<<<<<<< HEAD
 	void display_queue();
 	void delete_queue();
 	void de_queue();
+=======
+	void de_queue();
+	void display_queue();
+>>>>>>> 1384c68... Added stack files
 
 private:
 	node *front;
@@ -48,12 +58,25 @@ void Queue::en_queue(int key)
 	temp->next = NULL;
 
 	if (front == NULL)
+<<<<<<< HEAD
 		front = temp;
 	
 	else
 		end->next = temp;
 	
 	end = temp;
+=======
+	
+		front = end = temp;
+	
+	else
+	{
+		end->next = temp;
+		end = temp;
+	}
+
+	delete temp;
+>>>>>>> 1384c68... Added stack files
 }
 
 void Queue::de_queue()
@@ -65,11 +88,18 @@ void Queue::de_queue()
 	else
 	{
 		node *temp = front;
+<<<<<<< HEAD
 
 		front = front->next;
 
 		std::cout << "The de queued element is: " << temp->key << std::endl;
 	
+=======
+		front = front->next;
+
+		std::cout << "The de queued element is: " << temp->key << std::endl;
+
+>>>>>>> 1384c68... Added stack files
 		delete temp;
 	}
 }
@@ -86,8 +116,11 @@ void Queue::display_queue()
 	{
 		temp = front;
 
+<<<<<<< HEAD
 		std::cout << "front-> ";
 
+=======
+>>>>>>> 1384c68... Added stack files
 		while (temp->next != NULL)
 		{
 			std::cout << temp->key << " ";
@@ -95,6 +128,7 @@ void Queue::display_queue()
 			temp = temp->next;
 		}
 
+<<<<<<< HEAD
 		std::cout << temp->key << " ->end\n";
 	}
 }
@@ -115,14 +149,22 @@ void Queue::delete_queue()
 		}
 
 		delete front;
+=======
+		std::cout << std::endl;
+>>>>>>> 1384c68... Added stack files
 	}
 }
 
 Queue::~Queue()
 {
+<<<<<<< HEAD
 	delete_queue();
 }
 /*
+=======
+}
+
+>>>>>>> 1384c68... Added stack files
 int main(void)
 {
 	Queue queue;
@@ -148,7 +190,10 @@ int main(void)
 			scanf_s("%d", &elem);
 
 			queue.en_queue(elem);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1384c68... Added stack files
 			break;
 
 		case 2:
@@ -167,4 +212,8 @@ int main(void)
 	} while (answer);
 
 	return 0;
+<<<<<<< HEAD
 }*/
+=======
+}
+>>>>>>> 1384c68... Added stack files

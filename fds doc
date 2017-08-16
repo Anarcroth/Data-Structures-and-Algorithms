@@ -47,7 +47,11 @@
 
 *Linked Lists vs. Arrays* - Both linked lists and arrays do fairly similar things, but there are several fundamental differences between the two.
 
+<<<<<<< HEAD
 **--- 1.1 Arrays ---**
+=======
+**--Arrays--**
+>>>>>>> 1384c68... Added stack files
 
 >*Arrays*  allocate an entire memory block to hold the elements. The first element in an array always has an index of *0 (zero)*, and if the array has *n* elements the last element will have the index *n - 1*. 
 
@@ -289,6 +293,7 @@ Space Complexity: **O(n)**
 #####Basic Queue methods
 
 ~~~c
+<<<<<<< HEAD
 struct queue *en_queue(struct queue *que, int key);
 struct queue *de_queue(struct queue *que);
 struct queue *create_queue();
@@ -317,3 +322,9 @@ stackoverflow.com/admin.php
 https://wildlyinaccurate.com/a-hackers-guide-to-git/#tree-objects
 
 ---
+=======
+void en_queue(queue *q, int key)
+int de_queue(queue *q)
+void delete_queue(queue *q)
+~~~
+>>>>>>> 1384c68... Added stack files

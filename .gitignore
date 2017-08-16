@@ -377,12 +377,16 @@ __pycache__/
 
 # End of https://www.gitignore.io/api/c,c++,visualstudio
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1384c68... Added stack files
 .vs/DataStructures and Algorithms Made Easy/v15/.suo
 *.suo
 *.db
 *.ipch
 *.vs
 *.sqlite
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 .vs/DataStructures and Algorithms Made Easy/v15/.suo
@@ -395,3 +399,5 @@ __pycache__/
 *.db
 >>>>>>> feature/stack
 >>>>>>> 000929b... squashed last 9 commits
+=======
+>>>>>>> 1384c68... Added stack files
