@@ -1,10 +1,11 @@
 /**
 	COS: FDS
 	oop_linked_list.cpp
-	Purpose: Create a dynamic object oriented linked list queue
+	Purpose: 	Create a dynamic object oriented linked list queue
 
 	@author: Martin Nestorov
 	@version: 0.1.2 15/08/2017
+
 */
 
 #include <iostream>

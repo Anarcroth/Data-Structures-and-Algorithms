@@ -153,6 +153,7 @@ stack::~stack()
 {
 	delete_stack();
 }
+
 /*
 int main(void)
 {
