@@ -4,7 +4,7 @@
 	Purpose: Create a dynamic object oriented linked list queue
 
 	@author: Martin Nestorov
-	@version: 0.1.0 15/08/2017
+	@version: 0.1.2 15/08/2017
 */
 
 #include <iostream>
@@ -22,8 +22,9 @@ public:
 	~Queue();
 
 	void en_queue(int key);
-	void de_queue();
 	void display_queue();
+	void delete_queue();
+	void de_queue();
 
 private:
 	node *front;
@@ -42,16 +43,12 @@ void Queue::en_queue(int key)
 	temp->next = NULL;
 
 	if (front == NULL)
-	
-		front = end = temp;
+		front = temp;
 	
 	else
-	{
 		end->next = temp;
-		end = temp;
-	}
-
-	delete temp;
+	
+	end = temp;
 }
 
 void Queue::de_queue()
@@ -63,10 +60,11 @@ void Queue::de_queue()
 	else
 	{
 		node *temp = front;
+
 		front = front->next;
 
 		std::cout << "The de queued element is: " << temp->key << std::endl;
-
+	
 		delete temp;
 	}
 }
@@ -83,6 +81,8 @@ void Queue::display_queue()
 	{
 		temp = front;
 
+		std::cout << "front-> ";
+
 		while (temp->next != NULL)
 		{
 			std::cout << temp->key << " ";
@@ -90,12 +90,32 @@ void Queue::display_queue()
 			temp = temp->next;
 		}
 
-		std::cout << std::endl;
+		std::cout << temp->key << " ->end\n";
+	}
+}
+
+void Queue::delete_queue()
+{
+	if (front != NULL)
+	{
+		node *temp = new node;
+
+		while (front != NULL)
+		{
+			temp = front;
+
+			front = front->next;
+
+			delete temp;
+		}
+
+		delete front;
 	}
 }
 
 Queue::~Queue()
 {
+	delete_queue();
 }
 
 int main(void)
@@ -123,6 +143,7 @@ int main(void)
 			scanf_s("%d", &elem);
 
 			queue.en_queue(elem);
+
 			break;
 
 		case 2:
