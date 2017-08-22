@@ -34,9 +34,10 @@ static void delete_queue(struct queue *que);
 */
 static struct queue *create_queue()
 {
-	struct queue *que;
+	struct queue *que = (struct queue*)malloc(sizeof(struct queue));
 
-	que = (struct queue*)malloc(sizeof(struct queue));
+	if (que == NULL)
+		exit(0);
 
 	que->end = NULL;
 	que->front = NULL;
