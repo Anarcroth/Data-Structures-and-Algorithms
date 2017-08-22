@@ -118,7 +118,7 @@ Queue::~Queue()
 {
 	delete_queue();
 }
-
+/*
 int main(void)
 {
 	Queue queue;
@@ -163,4 +163,4 @@ int main(void)
 	} while (answer);
 
 	return 0;
-}
+}*/
