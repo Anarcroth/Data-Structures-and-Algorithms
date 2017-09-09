@@ -1,11 +1,7 @@
 /**
 	COS: FDS
 	array_stack.c
-<<<<<<< HEAD
-	Purpose:	Create dyamic array stack holding integers
-=======
 	Purpose:	Create dynamic array stack holding integers
->>>>>>> feature/binary-tree
 
 	@author:	Martin Nestorov
 	@version:	0.2.2 24/07/2017
@@ -197,21 +193,13 @@ int main(void)
 	do 
 	{
 		printf("Take action: ");
-<<<<<<< HEAD
-		scanf_s("%d", &answer);
-=======
 		scanf("%d", &answer);
->>>>>>> feature/binary-tree
 
 		switch (answer)
 		{
 		case 1:
 			printf("Enter an element: ");
-<<<<<<< HEAD
-			scanf_s("%d", &elem);
-=======
 			scanf("%d", &elem);
->>>>>>> feature/binary-tree
 
 			push(&*stack, elem);
 			break;
@@ -236,12 +224,9 @@ int main(void)
 			delete_stack(&*stack);
 
 			exit(0);
-<<<<<<< HEAD
-=======
 
         default:
             continue;
->>>>>>> feature/binary-tree
 		}
 	
 	} while (answer);
