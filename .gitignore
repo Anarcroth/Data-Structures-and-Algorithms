@@ -378,14 +378,18 @@ __pycache__/
 # End of https://www.gitignore.io/api/c,c++,visualstudio
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 1384c68... Added stack files
+=======
+>>>>>>> f6c296b... Added Binary Tree implemenation with traversals
 .vs/DataStructures and Algorithms Made Easy/v15/.suo
 *.suo
 *.db
 *.ipch
 *.vs
 *.sqlite
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -401,3 +405,18 @@ __pycache__/
 >>>>>>> 000929b... squashed last 9 commits
 =======
 >>>>>>> 1384c68... Added stack files
+=======
+
+# specific to CodeBlocks IDE
+*.cbp
+*.layout
+*.depend
+
+# generated directories
+bin/
+obj/
+
+ADT/*
+DataStructures and Algorithms Made Easy/cmake-build-debug/*
+DataStructures and Algorithms Made Easy/CMakeLists.txt
+>>>>>>> f6c296b... Added Binary Tree implemenation with traversals

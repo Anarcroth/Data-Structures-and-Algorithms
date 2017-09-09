@@ -1,7 +1,11 @@
 /**
 	COS: FDS
 	array_stack.c
+<<<<<<< HEAD
 	Purpose:	Create dyamic array stack holding integers
+=======
+	Purpose:	Create dynamic array stack holding integers
+>>>>>>> f6c296b... Added Binary Tree implemenation with traversals
 
 	@author:	Martin Nestorov
 	@version:	0.2.2 24/07/2017
@@ -193,13 +197,21 @@ int main(void)
 	do 
 	{
 		printf("Take action: ");
+<<<<<<< HEAD
 		scanf_s("%d", &answer);
+=======
+		scanf("%d", &answer);
+>>>>>>> f6c296b... Added Binary Tree implemenation with traversals
 
 		switch (answer)
 		{
 		case 1:
 			printf("Enter an element: ");
+<<<<<<< HEAD
 			scanf_s("%d", &elem);
+=======
+			scanf("%d", &elem);
+>>>>>>> f6c296b... Added Binary Tree implemenation with traversals
 
 			push(&*stack, elem);
 			break;
@@ -224,6 +236,12 @@ int main(void)
 			delete_stack(&*stack);
 
 			exit(0);
+<<<<<<< HEAD
+=======
+
+        default:
+            continue;
+>>>>>>> f6c296b... Added Binary Tree implemenation with traversals
 		}
 	
 	} while (answer);

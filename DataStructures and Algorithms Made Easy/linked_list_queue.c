@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f6c296b... Added Binary Tree implemenation with traversals
 /**
 	COS: FDS
 	linked_list_queue.c
@@ -8,23 +11,35 @@
 	@version:	0.1.3 12.08.2017
 */
 
+<<<<<<< HEAD
 =======
 >>>>>>> 1384c68... Added stack files
 #include <stdio.h>
+=======
+#include <stdio.h>
+#include <stdlib.h>
+>>>>>>> f6c296b... Added Binary Tree implemenation with traversals
 
 struct node
 {
 	int key;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	struct node *next;
 =======
 	node *next;
 >>>>>>> 1384c68... Added stack files
+=======
+	struct node *next;
+>>>>>>> f6c296b... Added Binary Tree implemenation with traversals
 };
 
 struct queue
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f6c296b... Added Binary Tree implemenation with traversals
 	struct node *front;
 	struct node *end;
 };
@@ -153,6 +168,7 @@ static void display_queue(struct queue *que)
 
 		printf("%d--->NULL\n", temp->key);
 	}
+<<<<<<< HEAD
 =======
 	node *front;
 	node *end;
@@ -235,11 +251,16 @@ void delete_queue(queue *q)
 
 	free(q);
 >>>>>>> 1384c68... Added stack files
+=======
+>>>>>>> f6c296b... Added Binary Tree implemenation with traversals
 }
 /*
 int main()
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f6c296b... Added Binary Tree implemenation with traversals
 	struct queue *queue;
 
 	int answer = 0, elem = 0;
@@ -251,18 +272,30 @@ int main()
 	printf("3. Display contents of queue.\n");
 	printf("4. Quit.\n");
 
+<<<<<<< HEAD
 	queue = create_queue(&queue);
+=======
+	queue = create_queue();
+>>>>>>> f6c296b... Added Binary Tree implemenation with traversals
 
 	do
 	{
 		printf("Take action: ");
+<<<<<<< HEAD
 		scanf_s("%d", &answer);
+=======
+		scanf("%d", &answer);
+>>>>>>> f6c296b... Added Binary Tree implemenation with traversals
 
 		switch (answer)
 		{
 		case 1:
 			printf("Enter an element: ");
+<<<<<<< HEAD
 			scanf_s("%d", &elem);
+=======
+			scanf("%d", &elem);
+>>>>>>> f6c296b... Added Binary Tree implemenation with traversals
 
 			queue = en_queue(&*queue, elem);
 			break;
@@ -279,11 +312,20 @@ int main()
 		case 4:
 			delete_queue(&*queue);
 			exit(0);
+<<<<<<< HEAD
 		}
 
 	} while (answer);
 =======
 >>>>>>> 1384c68... Added stack files
+=======
+
+		default:
+			continue;
+		}
+
+	} while (answer);
+>>>>>>> f6c296b... Added Binary Tree implemenation with traversals
 
 	return 0;
 }*/

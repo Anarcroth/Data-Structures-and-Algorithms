@@ -161,13 +161,21 @@ int main(void)
 	do 
 	{
 		printf("Take action: ");
+<<<<<<< HEAD
 		scanf_s("%d", &answer);
+=======
+		scanf("%d", &answer);
+>>>>>>> f6c296b... Added Binary Tree implemenation with traversals
 
 		switch (answer)
 		{
 		case 1:
 			printf("Enter an element: ");
+<<<<<<< HEAD
 			scanf_s("%d", &elem);
+=======
+			scanf("%d", &elem);
+>>>>>>> f6c296b... Added Binary Tree implemenation with traversals
 
 			stack = push(&*stack, elem);
 			break;
