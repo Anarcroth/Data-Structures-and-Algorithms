@@ -161,13 +161,21 @@ int main(void)
 	do 
 	{
 		printf("Take action: ");
+<<<<<<< HEAD
 		scanf_s("%d", &answer);
+=======
+		scanf("%d", &answer);
+>>>>>>> feature/binary-tree
 
 		switch (answer)
 		{
 		case 1:
 			printf("Enter an element: ");
+<<<<<<< HEAD
 			scanf_s("%d", &elem);
+=======
+			scanf("%d", &elem);
+>>>>>>> feature/binary-tree
 
 			stack = push(&*stack, elem);
 			break;

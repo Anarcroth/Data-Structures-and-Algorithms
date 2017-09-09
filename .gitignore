@@ -382,3 +382,19 @@ __pycache__/
 *.ipch
 *.vs
 *.sqlite
+<<<<<<< HEAD
+=======
+
+# specific to CodeBlocks IDE
+*.cbp
+*.layout
+*.depend
+
+# generated directories
+bin/
+obj/
+
+ADT/*
+DataStructures and Algorithms Made Easy/cmake-build-debug/*
+DataStructures and Algorithms Made Easy/CMakeLists.txt
+>>>>>>> feature/binary-tree
