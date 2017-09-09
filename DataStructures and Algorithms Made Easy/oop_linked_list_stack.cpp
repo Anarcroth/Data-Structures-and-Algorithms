@@ -31,19 +31,15 @@ struct node
 	int key;
 };
 
-<<<<<<< HEAD
-class stack
-{
-public:
-	stack();
-	~stack();
-=======
 class Stack
 {
 public:
 	Stack()= default;
 	~Stack();
+<<<<<<< HEAD
 >>>>>>> f6c296b... Added Binary Tree implemenation with traversals
+=======
+>>>>>>> 5683347... Fixed conflicts and merged
 
 	void display_stack();
 	void push(int &key);
@@ -57,28 +53,24 @@ public:
 private:
 	void delete_stack();	
 	
-<<<<<<< HEAD
-	node *top_of_stack;
-};
-
-stack::stack() : top_of_stack(NULL) { }
-
-=======
 	node *top_of_stack{};
 };
 
+<<<<<<< HEAD
 >>>>>>> f6c296b... Added Binary Tree implemenation with traversals
+=======
+>>>>>>> 5683347... Fixed conflicts and merged
 /**
 	Push new element on top of stack
 
 	@param *top_of_stack		The pointer to the top of stack
 	@param key					The value that is pushed on top
 */
-<<<<<<< HEAD
-void stack::push(int &key)
-=======
 void Stack::push(int &key)
+<<<<<<< HEAD
 >>>>>>> f6c296b... Added Binary Tree implemenation with traversals
+=======
+>>>>>>> 5683347... Fixed conflicts and merged
 {
 	node *temp = new node;
 
@@ -95,11 +87,11 @@ void Stack::push(int &key)
 	@param *top_of_stack		The pointer to the top of stack
 	@return						The top element from the stack
 */
-<<<<<<< HEAD
-int stack::pop()
-=======
 int Stack::pop()
+<<<<<<< HEAD
 >>>>>>> f6c296b... Added Binary Tree implemenation with traversals
+=======
+>>>>>>> 5683347... Fixed conflicts and merged
 {
 	if (!is_empty())
 	{
@@ -118,21 +110,16 @@ int Stack::pop()
 	@param *top_of_stack		The pointer to the top of stack
 	@return						The top element from the stack
 */
-<<<<<<< HEAD
-int stack::top()
-{
-	if (!is_empty())
-		return top_of_stack->key;
-	else
-		return 0;
-=======
 int Stack::top()
 {
 	if (!is_empty())
 		return top_of_stack->key;
 
 	return 0;
+<<<<<<< HEAD
 >>>>>>> f6c296b... Added Binary Tree implemenation with traversals
+=======
+>>>>>>> 5683347... Fixed conflicts and merged
 }
 
 /**
@@ -140,15 +127,13 @@ int Stack::top()
 
 	@param *top_of_stack	The pointer to the top of stack
 */
-<<<<<<< HEAD
-void stack::display_stack()
-{
-	node *temp = new node;
-=======
 void Stack::display_stack()
 {
 	auto *temp = new node;
+<<<<<<< HEAD
 >>>>>>> f6c296b... Added Binary Tree implemenation with traversals
+=======
+>>>>>>> 5683347... Fixed conflicts and merged
 
 	temp = top_of_stack;
 
@@ -160,36 +145,37 @@ void Stack::display_stack()
 		{
 			std::cout << temp->key << " ";
 			temp = temp->next;
-<<<<<<< HEAD
-		} while (temp != NULL);
-=======
 		} while (temp != nullptr);
+<<<<<<< HEAD
 >>>>>>> f6c296b... Added Binary Tree implemenation with traversals
+=======
+>>>>>>> 5683347... Fixed conflicts and merged
 
 		std::cout << "\n";
 	}
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 //TODO make it templized and also so that one can initialize multiple stacks and not only one, so code restructure.
 
 =======
 >>>>>>> f6c296b... Added Binary Tree implemenation with traversals
+=======
+>>>>>>> 5683347... Fixed conflicts and merged
 /**
 	Check if the stack is empty
 
 	@param *top_of_stack	Pointer to the top of the stack
 	@return					True of the stack is empty, otherwise, false
 */
-<<<<<<< HEAD
-bool stack::is_empty()
-{
-	return top_of_stack == NULL;
-=======
 bool Stack::is_empty()
 {
 	return top_of_stack == nullptr;
+<<<<<<< HEAD
 >>>>>>> f6c296b... Added Binary Tree implemenation with traversals
+=======
+>>>>>>> 5683347... Fixed conflicts and merged
 }
 
 /**
@@ -197,15 +183,6 @@ bool Stack::is_empty()
 
 	@param *top_of_satck	Pointer to the top of the stack
 */
-<<<<<<< HEAD
-void stack::delete_stack()
-{
-	if (!is_empty())
-	{
-		node *temp = new node;
-
-		while (top_of_stack->next != NULL)
-=======
 void Stack::delete_stack()
 {
 	if (!is_empty())
@@ -213,7 +190,10 @@ void Stack::delete_stack()
 		auto *temp = new node;
 
 		while (top_of_stack->next != nullptr)
+<<<<<<< HEAD
 >>>>>>> f6c296b... Added Binary Tree implemenation with traversals
+=======
+>>>>>>> 5683347... Fixed conflicts and merged
 		{
 			temp = top_of_stack;
 			top_of_stack = top_of_stack->next;
@@ -225,6 +205,7 @@ void Stack::delete_stack()
 	delete top_of_stack;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 stack::~stack()
 {
@@ -249,15 +230,21 @@ int main(void)
 {
 	stack stack;
 =======
+=======
+>>>>>>> 5683347... Fixed conflicts and merged
 Stack::~Stack()
 {
 	delete_stack();
 }
+
 /*
 int main()
 {
 	Stack stack;
+<<<<<<< HEAD
 >>>>>>> f6c296b... Added Binary Tree implemenation with traversals
+=======
+>>>>>>> 5683347... Fixed conflicts and merged
 
 	int answer = 0, elem = 0;
 
@@ -310,6 +297,7 @@ int main()
 		case 5:
 			exit(0);
 <<<<<<< HEAD
+<<<<<<< HEAD
 		}
 
 	} while (answer);
@@ -329,6 +317,8 @@ int main()
 }*/
 >>>>>>> 1384c68... Added stack files
 =======
+=======
+>>>>>>> 5683347... Fixed conflicts and merged
 
 		default:
 			continue;

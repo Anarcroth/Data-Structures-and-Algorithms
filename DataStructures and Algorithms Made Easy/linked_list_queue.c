@@ -1,7 +1,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f6c296b... Added Binary Tree implemenation with traversals
+=======
+>>>>>>> 5683347... Fixed conflicts and merged
 /**
 	COS: FDS
 	linked_list_queue.c
@@ -18,11 +21,15 @@
 =======
 #include <stdio.h>
 #include <stdlib.h>
+<<<<<<< HEAD
 >>>>>>> f6c296b... Added Binary Tree implemenation with traversals
+=======
+>>>>>>> 5683347... Fixed conflicts and merged
 
 struct node
 {
 	int key;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	struct node *next;
@@ -32,14 +39,20 @@ struct node
 =======
 	struct node *next;
 >>>>>>> f6c296b... Added Binary Tree implemenation with traversals
+=======
+	struct node *next;
+>>>>>>> 5683347... Fixed conflicts and merged
 };
 
 struct queue
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f6c296b... Added Binary Tree implemenation with traversals
+=======
+>>>>>>> 5683347... Fixed conflicts and merged
 	struct node *front;
 	struct node *end;
 };
@@ -169,6 +182,7 @@ static void display_queue(struct queue *que)
 		printf("%d--->NULL\n", temp->key);
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 	node *front;
 	node *end;
@@ -253,14 +267,19 @@ void delete_queue(queue *q)
 >>>>>>> 1384c68... Added stack files
 =======
 >>>>>>> f6c296b... Added Binary Tree implemenation with traversals
+=======
+>>>>>>> 5683347... Fixed conflicts and merged
 }
 /*
 int main()
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f6c296b... Added Binary Tree implemenation with traversals
+=======
+>>>>>>> 5683347... Fixed conflicts and merged
 	struct queue *queue;
 
 	int answer = 0, elem = 0;
@@ -325,7 +344,10 @@ int main()
 		}
 
 	} while (answer);
+<<<<<<< HEAD
 >>>>>>> f6c296b... Added Binary Tree implemenation with traversals
+=======
+>>>>>>> 5683347... Fixed conflicts and merged
 
 	return 0;
 }*/

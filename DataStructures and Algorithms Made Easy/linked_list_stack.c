@@ -123,6 +123,7 @@ static int is_empty(struct node *stack)
 
 	@param *top		Pointer to the top of the stack
 */
+
 static void delete_stack(struct node *stack)
 {
 	if (!is_empty(stack))
@@ -161,21 +162,21 @@ int main(void)
 	do 
 	{
 		printf("Take action: ");
-<<<<<<< HEAD
-		scanf_s("%d", &answer);
-=======
 		scanf("%d", &answer);
+<<<<<<< HEAD
 >>>>>>> f6c296b... Added Binary Tree implemenation with traversals
+=======
+>>>>>>> 5683347... Fixed conflicts and merged
 
 		switch (answer)
 		{
 		case 1:
 			printf("Enter an element: ");
-<<<<<<< HEAD
-			scanf_s("%d", &elem);
-=======
 			scanf("%d", &elem);
+<<<<<<< HEAD
 >>>>>>> f6c296b... Added Binary Tree implemenation with traversals
+=======
+>>>>>>> 5683347... Fixed conflicts and merged
 
 			stack = push(&*stack, elem);
 			break;
