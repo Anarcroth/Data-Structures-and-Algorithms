@@ -10,13 +10,13 @@ class sorting
 {
 private:
 public:
-    void selection_sort(T *array, T size);
-    void insertion_sort(T *array, T size);
-    void bubble_sort(T array[], T size);
+    void selection_sort(std::vector<T> &array, T size);
+    void insertion_sort(std::vector<T> &array, T size);
+    void bubble_sort(std::vector<T> &array, T size);
     void merge_sort(T[], T);
     void quick_sort(T[], T);
 
-    T* generate_rand_array(T *array, int size);
+    std::vector<T> generate_rand_array(std::vector<T> &array, int size);
 };
 
 
