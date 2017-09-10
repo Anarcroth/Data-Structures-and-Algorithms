@@ -116,6 +116,47 @@ void sorting<T>::insertion_sort(std::vector<T> &array, T size)
 }
 
 template<class T>
+void sorting<T>::quick_sort(std::vector<T> &array, int low, int high)
+{
+    if (high > low)
+    {
+        int pivot = partition(array, low, high);
+        quick_sort(array, low, pivot -1);
+        quick_sort(array, pivot + 1, high);
+    }
+}
+
+template<class T>
+int sorting<T>::partition(std::vector<T> &array, int low, int high)
+{
+    int pivot = array[high];    // pivot
+    int i = (low - 1);  // Index of smaller element
+
+    for (int j = low; j <= high- 1; j++)
+    {
+        // If current element is smaller than or
+        // equal to pivot
+        if (array[j] <= pivot)
+        {
+            i++;    // increment index of smaller element
+            swap(&array[i], &array[j]);
+        }
+    }
+
+    swap(&array[i + 1], &array[high]);
+
+    return (i + 1);
+}
+
+template<class T>
+void sorting<T>::swap(T *low, T *high)
+{
+    int t = *low;
+    *low = *high;
+    *high = t;
+}
+
+template<class T>
 std::vector<T> sorting<T>::generate_rand_array(std::vector<T> &array, int size)
 {
     srand(time(nullptr));
@@ -147,15 +188,24 @@ int main()
 
     sorting<int> sort_algthms;
 
-    std::vector<int> array, array2, array3;
+    std::vector<int> array, array2, array3, array4;
 
     array = sort_algthms.generate_rand_array(array, size);
     array2 = sort_algthms.generate_rand_array(array2, size);
     array3 = sort_algthms.generate_rand_array(array3, size);
+    array4 = sort_algthms.generate_rand_array(array4, size);
 
     sort_algthms.bubble_sort(array, size);
     sort_algthms.insertion_sort(array2, size);
     sort_algthms.selection_sort(array3, size);
+    sort_algthms.quick_sort(array4, 0, size);
+
+    std::cout << "\n\nQuick Sort: \n";
+
+    for (int &it : array4)
+    {
+        std::cout << it << " ";
+    }
 
     return 0;
 }
