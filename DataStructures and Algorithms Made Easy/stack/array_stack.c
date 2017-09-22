@@ -12,21 +12,27 @@
 
 struct array_stack
 {
-	int num_elements;
-	int capacity;
-	int *array;
-	int top;
+    int num_elements;
+    int capacity;
+    int *array;
+    int top;
 };
 
 /** Prototypes */
 static void double_stack_capacity(struct array_stack *stack);
+
 static void display_stack(struct array_stack *stack);
+
 static void push(struct array_stack *stack, int key);
+
 static void delete_stack(struct array_stack *stack);
 
 static int is_empty(struct array_stack *stack);
+
 static int is_full(struct array_stack *stack);
+
 static int pop(struct array_stack *stack);
+
 static int top(struct array_stack *stack);
 
 static struct array_stack *create_stack();
@@ -38,22 +44,22 @@ static struct array_stack *create_stack();
 */
 static struct array_stack *create_stack()
 {
-	struct array_stack *temp_stack = (struct array_stack*)malloc(sizeof(struct array_stack));
+    struct array_stack *temp_stack = (struct array_stack *) malloc(sizeof(struct array_stack));
 
-	if (temp_stack == NULL)
-		exit(0);
+    if (temp_stack == NULL)
+        exit(0);
 
-	temp_stack->capacity = 1;
-	temp_stack->top = -1;
-	temp_stack->num_elements = 0;
+    temp_stack->capacity = 1;
+    temp_stack->top = -1;
+    temp_stack->num_elements = 0;
 
-	// Initial allocation is of size 1
-	temp_stack->array = (int*)malloc(temp_stack->capacity * sizeof(int));
-	
-	if (temp_stack->array == NULL)
-		exit(0);
+    // Initial allocation is of size 1
+    temp_stack->array = (int *) malloc(temp_stack->capacity * sizeof(int));
 
-	return temp_stack;
+    if (temp_stack->array == NULL)
+        exit(0);
+
+    return temp_stack;
 }
 
 /**
@@ -64,7 +70,7 @@ static struct array_stack *create_stack()
 */
 static int is_full(struct array_stack *stack)
 {
-	return stack->top == stack->capacity - 1;
+    return stack->top == stack->capacity - 1;
 }
 
 /**
@@ -75,7 +81,7 @@ static int is_full(struct array_stack *stack)
 */
 static int is_empty(struct array_stack *stack)
 {
-	return stack->top == -1;
+    return stack->top == -1;
 }
 
 /**
@@ -85,8 +91,8 @@ static int is_empty(struct array_stack *stack)
 */
 static void double_stack_capacity(struct array_stack *stack)
 {
-	stack->capacity *= 2;
-	stack->array = (int*)realloc(stack->array, stack->capacity * sizeof(int));
+    stack->capacity *= 2;
+    stack->array = (int *) realloc(stack->array, stack->capacity * sizeof(int));
 }
 
 /**
@@ -97,11 +103,11 @@ static void double_stack_capacity(struct array_stack *stack)
 */
 static void push(struct array_stack *stack, int key)
 {
-	if (is_full(stack))
-		double_stack_capacity(stack);
+    if (is_full(stack))
+        double_stack_capacity(stack);
 
-	stack->num_elements++;
-	stack->array[++stack->top] = key;
+    stack->num_elements++;
+    stack->array[++stack->top] = key;
 }
 
 /**
@@ -112,14 +118,14 @@ static void push(struct array_stack *stack, int key)
 */
 static int top(struct array_stack *stack)
 {
-	if (is_empty(stack)) 
-	{
-		printf("The stack is empty.");
+    if (is_empty(stack))
+    {
+        printf("The stack is empty.");
 
-		return 0;
-	}
+        return 0;
+    }
 
-	return stack->array[stack->top];
+    return stack->array[stack->top];
 }
 
 /**
@@ -130,16 +136,16 @@ static int top(struct array_stack *stack)
 */
 static int pop(struct array_stack *stack)
 {
-	if (is_empty(stack))
-	{
-		printf("The stack is empty.");
+    if (is_empty(stack))
+    {
+        printf("The stack is empty.");
 
-		return 0;
-	}
+        return 0;
+    }
 
-	stack->num_elements--;
+    stack->num_elements--;
 
-	return stack->array[stack->top--];
+    return stack->array[stack->top--];
 }
 
 /**
@@ -149,15 +155,15 @@ static int pop(struct array_stack *stack)
 */
 static void display_stack(struct array_stack *stack)
 {
-	if (!is_empty(stack))
-	{
-		printf("Stack: ");
+    if (!is_empty(stack))
+    {
+        printf("Stack: \n");
 
-		for (int elem = stack->num_elements - 1; elem > -1; elem--)
-			printf("%d ", stack->array[elem]);
+        for (int elem = stack->num_elements - 1; elem > -1; elem--)
+            printf("%d\n", stack->array[elem]);
 
-		printf("\n");
-	}
+        printf("\n");
+    }
 }
 
 /**
@@ -167,11 +173,11 @@ static void display_stack(struct array_stack *stack)
 */
 static void delete_stack(struct array_stack *stack)
 {
-	if (!is_empty(stack))
-		if (stack->array)
-			free(stack->array);
-		
-	free(stack);
+    if (!is_empty(stack))
+        if (stack->array)
+            free(stack->array);
+
+    free(stack);
 }
 /*
 int main(void)

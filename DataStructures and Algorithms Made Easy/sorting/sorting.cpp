@@ -111,7 +111,7 @@ void sorting<T>::quick_sort(std::vector<T> &array, int low, int high)
     if (high > low)
     {
         int pivot = partition(array, low, high);
-        quick_sort(array, low, pivot -1);
+        quick_sort(array, low, pivot - 1);
         quick_sort(array, pivot + 1, high);
     }
 }
@@ -122,7 +122,7 @@ int sorting<T>::partition(std::vector<T> &array, int low, int high)
     int pivot = array[high];
     int i = (low - 1);
 
-    for (int j = low; j <= high- 1; j++)
+    for (int j = low; j <= high - 1; j++)
     {
         if (array[j] <= pivot)
         {
@@ -163,7 +163,7 @@ void sorting<T>::merge(std::vector<T> &array, int left, int middle, int right)
 {
     int i, j, k;
     int n1 = middle - left + 1;
-    int n2 =  right - middle;
+    int n2 = right - middle;
 
     std::vector<T> L(n1), R(n2);
 
@@ -171,7 +171,7 @@ void sorting<T>::merge(std::vector<T> &array, int left, int middle, int right)
         L[i] = array[left + i];
 
     for (j = 0; j < n2; j++)
-        R[j] = array[middle + 1+ j];
+        R[j] = array[middle + 1 + j];
 
     i = 0;
     j = 0;
@@ -183,8 +183,7 @@ void sorting<T>::merge(std::vector<T> &array, int left, int middle, int right)
         {
             array[k] = L[i];
             i++;
-        }
-        else
+        } else
         {
             array[k] = R[j];
             j++;
@@ -229,11 +228,10 @@ void sorting<T>::display(std::vector<T> &array)
         std::cout << it << " ";
     }
 }
-
+/*
 int main()
 {
-    // This is the proper way to generate a random number in C++11, but for some reason an inconsistent segmentation
-    // fault is happening whilst initializing the random_device.
+    // This is the proper way to generate a random number in C++11 and above.
     /*
         std::random_device rd;
         std::mt19937 mt(rd());
@@ -241,7 +239,7 @@ int main()
 
          for (int i=0; i<16; ++i)
              std::cout << dist(mt) << "\n";
-     */
+     *//*
 
     signed int size;
     std::cout << "Enter a size for the array: ";
@@ -276,4 +274,4 @@ int main()
     sort_algthms.display(array5);
 
     return 0;
-}
+}*/
