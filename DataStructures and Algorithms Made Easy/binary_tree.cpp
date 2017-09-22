@@ -290,7 +290,8 @@ template<class T> BinaryTree<T>::~BinaryTree()
 	delete_tree(root);
 }
 
-int main()
+/*
+void main()
 {
 	BinaryTree<int> binary_tree;
 
@@ -367,4 +368,4 @@ int main()
 	} while ((bool)answer);
 
 	return 0;
-}
+}*/
