@@ -78,7 +78,7 @@ void Queue<T>::delete_queue()
 {
     if (front != nullptr)
     {
-        auto *temp = new node;
+        node *temp;
 
         while (front != nullptr)
         {

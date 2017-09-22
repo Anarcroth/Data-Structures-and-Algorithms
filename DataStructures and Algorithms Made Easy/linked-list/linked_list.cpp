@@ -43,8 +43,7 @@ void LinkedList<T>::insert_node(T value)
 template<class T>
 void LinkedList<T>::display()
 {
-    auto *temp = new node;
-    temp = head; // Use a temp node to traverse the list.
+    auto *temp = head; // Use a temp node to traverse the list.
 
     while (temp != nullptr)
     {
@@ -148,10 +147,8 @@ void LinkedList<T>::delete_first()
 template<class T>
 void LinkedList<T>::delete_position(T pos)
 {
-    auto *current = new node;
+    auto *current = head;
     auto *previous = new node;
-
-    current = head;
 
     for (std::size_t i = 1; i < pos; i++)
     {
