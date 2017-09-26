@@ -5,9 +5,10 @@
 #ifndef DATASTRUCTURES_AND_ALGORITHMS_MADE_EASY_BINARY_TREE_H
 #define DATASTRUCTURES_AND_ALGORITHMS_MADE_EASY_BINARY_TREE_H
 
+template<class T>
 struct node
 {
-    int key;
+    T key;
     node *left;
     node *right;
 };
@@ -36,23 +37,23 @@ public:
 
 private:
 
-    void find_key(node *root, T key);
+    void find_key(node<T> *root, T key);
 
-    void display_tree(node *root, int indent);
+    void display_tree(node<T> *root, int indent);
 
-    void insert(node *root, T key);
+    void insert(node<T> *root, T key);
 
-    void delete_tree(node *root);
+    void delete_tree(node<T> *root);
 
-    void level_order_traversal(node *root);
+    void level_order_traversal(node<T> *root);
 
-    void post_order_traversal(node *root);
+    void post_order_traversal(node<T> *root);
 
-    void pre_order_traversal(node *root);
+    void pre_order_traversal(node<T> *root);
 
-    void in_order_traversal(node *root);
+    void in_order_traversal(node<T> *root);
 
-    node *root{};
+    node<T> *root{};
 };
 
 #endif //DATASTRUCTURES_AND_ALGORITHMS_MADE_EASY_BINARY_TREE_H

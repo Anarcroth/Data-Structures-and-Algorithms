@@ -26,7 +26,7 @@ void BinaryTree<T>::insert(T key)
 
     else
     {
-        root = new node;
+        root = new node<T>;
         root->key = key;
         root->left = nullptr;
         root->right = nullptr;
@@ -40,7 +40,7 @@ void BinaryTree<T>::insert(T key)
 	@param key		The element to be inserted.
 */
 template<class T>
-void BinaryTree<T>::insert(node *root, T key)
+void BinaryTree<T>::insert(node<T> *root, T key)
 {
     if (key < root->key)
     {
@@ -49,7 +49,7 @@ void BinaryTree<T>::insert(node *root, T key)
 
         else
         {
-            root->left = new node;
+            root->left = new node<T>;
             root->left->key = key;
             root->left->left = nullptr;
             root->left->right = nullptr;
@@ -61,7 +61,7 @@ void BinaryTree<T>::insert(node *root, T key)
 
         else
         {
-            root->right = new node;
+            root->right = new node<T>;
             root->right->key = key;
             root->right->left = nullptr;
             root->right->right = nullptr;
@@ -70,7 +70,7 @@ void BinaryTree<T>::insert(node *root, T key)
 }
 
 /**
-	Find the node that holds the searched element
+	Find the node<T> that holds the searched element
 
 	@param key		The element to be inserted.
 */
@@ -85,13 +85,13 @@ void BinaryTree<T>::find_key(T key)
 }
 
 /**
-	Recursively find the node that holds the searched element
+	Recursively find the node<T> that holds the searched element
 
-	@param *root	A pointer to the parent of the current node.
+	@param *root	A pointer to the parent of the current node<T>.
 	@param key		The element to be inserted.
 */
 template<class T>
-void BinaryTree<T>::find_key(node *root, T key)
+void BinaryTree<T>::find_key(node<T> *root, T key)
 {
     if (key == root->key)
         std::cout << "The found key is: " << root->key << std::endl;
@@ -119,7 +119,7 @@ void BinaryTree<T>::display_tree()
 }
 
 template<class T>
-void BinaryTree<T>::display_tree(node *root, int indent)
+void BinaryTree<T>::display_tree(node<T> *root, int indent)
 {
     if ((bool) indent)
         std::cout << std::setw(indent) << " ";
@@ -141,10 +141,10 @@ void BinaryTree<T>::pre_order_traversal()
 /**
  * Visit the root. Then go to the left subtree, the to the right one
  *
- * @param root		A pointer to the parent of the current node.
+ * @param root		A pointer to the parent of the current node<T>.
  */
 template<class T>
-void BinaryTree<T>::pre_order_traversal(node *root)
+void BinaryTree<T>::pre_order_traversal(node<T> *root)
 {
     if (root != nullptr)
     {
@@ -158,16 +158,18 @@ template<class T>
 void BinaryTree<T>::post_order_traversal()
 {
     if (root != nullptr)
+    {
         post_order_traversal(root);
+    }
 }
 
 /**
- * Visit the left node. Then go to the right one, and lastly visit the root node
+ * Visit the left node<T>. Then go to the right one, and lastly visit the root node<T>
  *
- * @param root		A pointer to the parent of the current node.
+ * @param root		A pointer to the parent of the current node<T>.
  */
 template<class T>
-void BinaryTree<T>::post_order_traversal(node *root)
+void BinaryTree<T>::post_order_traversal(node<T> *root)
 {
     if (root != nullptr)
     {
@@ -181,16 +183,18 @@ template<class T>
 void BinaryTree<T>::in_order_traversal()
 {
     if (root != nullptr)
+    {
         in_order_traversal(root);
+    }
 }
 
 /**
- * Visit the most left node. Then go to the parent node, the to the right one
+ * Visit the most left node<T>. Then go to the parent node<T>, the to the right one
  *
- * @param root		A pointer to the parent of the current node.
+ * @param root		A pointer to the parent of the current node<T>.
  */
 template<class T>
-void BinaryTree<T>::in_order_traversal(node *root)
+void BinaryTree<T>::in_order_traversal(node<T> *root)
 {
 
     if (root != nullptr)
@@ -205,13 +209,15 @@ template<class T>
 void BinaryTree<T>::level_order_traversal()
 {
     if (root != nullptr)
+    {
         level_order_traversal(root);
+    }
 }
 
 template<class T>
-void BinaryTree<T>::level_order_traversal(node *root)
+void BinaryTree<T>::level_order_traversal(node<T> *root)
 {
-    std::queue<node *> queue;
+    std::queue<node<T> *> queue;
 
     queue.push(root);
 
@@ -223,7 +229,7 @@ void BinaryTree<T>::level_order_traversal(node *root)
 
         while (node_count > 0)
         {
-            node *temp = queue.front();
+            node<T> *temp = queue.front();
 
             std::cout << temp->key << " ";
 
@@ -245,10 +251,10 @@ void BinaryTree<T>::level_order_traversal(node *root)
 /**
 	Recursively delete the tree from the children to the root
 
-	@param *root	A pointer to the parent of the current node.
+	@param *root	A pointer to the parent of the current node<T>.
 */
 template<class T>
-void BinaryTree<T>::delete_tree(node *root)
+void BinaryTree<T>::delete_tree(node<T> *root)
 {
     if (root != nullptr)
     {
@@ -266,7 +272,7 @@ BinaryTree<T>::~BinaryTree()
 {
     delete_tree(root);
 }
-/*
+
 int main()
 {
 	BinaryTree<int> binary_tree;
@@ -283,7 +289,7 @@ int main()
 
 	do
 	{
-		std::cout << "Take action: ";
+		std::cout << "\nTake action: ";
 		std::cin >> answer;
 
 		switch (answer)
@@ -320,19 +326,24 @@ int main()
 				{
 					case 1:
 						binary_tree.post_order_traversal();
+                        break;
 
 					case 2:
 						binary_tree.in_order_traversal();
+                        break;
 
 					case 3:
 						binary_tree.pre_order_traversal();
+                        break;
 
 					case 4:
 						binary_tree.level_order_traversal();
+                        break;
 
 					default:
-						continue;
+                        continue;
 				}
+                break;
 
 		case 5:
             exit(0);
@@ -344,4 +355,4 @@ int main()
 	} while ((bool)answer);
 
 	return 0;
-}*/
+}
