@@ -19,17 +19,15 @@
 	@param key		The element to be inserted.
 */
 template<class T>
-void BinaryTree<T>::insert(T key)
+void BinaryTree<T>::insert(const T &key)
 {
     if (root != nullptr)
+    {
         insert(root, key);
-
+    }
     else
     {
-        root = new node<T>;
-        root->key = key;
-        root->left = nullptr;
-        root->right = nullptr;
+        root = new node<T>(key, nullptr, nullptr);
     }
 }
 
@@ -40,31 +38,28 @@ void BinaryTree<T>::insert(T key)
 	@param key		The element to be inserted.
 */
 template<class T>
-void BinaryTree<T>::insert(node<T> *root, T key)
+void BinaryTree<T>::insert(node<T> *&root, const T &key)
 {
     if (key < root->key)
     {
         if (root->left != nullptr)
+        {
             insert(root->left, key);
-
+        }
         else
         {
-            root->left = new node<T>;
-            root->left->key = key;
-            root->left->left = nullptr;
-            root->left->right = nullptr;
+            root = new node<T>(key, nullptr, nullptr);
         }
-    } else
+    }
+    else
     {
         if (root->right != nullptr)
+        {
             insert(root->right, key);
-
+        }
         else
         {
-            root->right = new node<T>;
-            root->right->key = key;
-            root->right->left = nullptr;
-            root->right->right = nullptr;
+            root = new node<T>(key, nullptr, nullptr);
         }
     }
 }
@@ -75,13 +70,16 @@ void BinaryTree<T>::insert(node<T> *root, T key)
 	@param key		The element to be inserted.
 */
 template<class T>
-void BinaryTree<T>::find_key(T key)
+void BinaryTree<T>::find_key(const T &key)
 {
     if (root != nullptr)
+    {
         find_key(root, key);
-
+    }
     else
+    {
         std::cout << "The tree is empty.\n";
+    }
 }
 
 /**
@@ -91,40 +89,45 @@ void BinaryTree<T>::find_key(T key)
 	@param key		The element to be inserted.
 */
 template<class T>
-void BinaryTree<T>::find_key(node<T> *root, T key)
+void BinaryTree<T>::find_key(node<T> *&root, const T &key)
 {
     if (key == root->key)
+    {
         std::cout << "The found key is: " << root->key << std::endl;
-
+    }
     else if (key < root->key && root->left != nullptr)
+    {
         find_key(root->left, key);
-
+    }
     else if (key >= root->key && root->right != nullptr)
+    {
         find_key(root->right, key);
-
+    }
     else
+    {
         std::cout << "Could not find element.\n";
-
+    }
 }
 
 template<class T>
 void BinaryTree<T>::display_tree()
 {
     if (root != nullptr)
+    {
         display_tree(root, 0);
-
+    }
     else
+    {
         std::cout << "The tree is empty.\n";
-
+    }
 }
 
 template<class T>
-void BinaryTree<T>::display_tree(node<T> *root, int indent)
+void BinaryTree<T>::display_tree(node<T> *&root, int indent)
 {
-    if ((bool) indent)
-        std::cout << std::setw(indent) << " ";
+    if ((bool) indent) std::cout << std::setw(indent) << " ";
 
-    std::cout << root->key << std::endl;
+    std::cout << *&root->key << std::endl;
 
     if (root->left != nullptr) display_tree(root->left, indent + 4);
 
@@ -135,7 +138,9 @@ template<class T>
 void BinaryTree<T>::pre_order_traversal()
 {
     if (root != nullptr)
+    {
         pre_order_traversal(root);
+    }
 }
 
 /**
@@ -144,7 +149,7 @@ void BinaryTree<T>::pre_order_traversal()
  * @param root		A pointer to the parent of the current node<T>.
  */
 template<class T>
-void BinaryTree<T>::pre_order_traversal(node<T> *root)
+void BinaryTree<T>::pre_order_traversal(node<T> *&root)
 {
     if (root != nullptr)
     {
@@ -169,7 +174,7 @@ void BinaryTree<T>::post_order_traversal()
  * @param root		A pointer to the parent of the current node<T>.
  */
 template<class T>
-void BinaryTree<T>::post_order_traversal(node<T> *root)
+void BinaryTree<T>::post_order_traversal(node<T> *&root)
 {
     if (root != nullptr)
     {
@@ -194,7 +199,7 @@ void BinaryTree<T>::in_order_traversal()
  * @param root		A pointer to the parent of the current node<T>.
  */
 template<class T>
-void BinaryTree<T>::in_order_traversal(node<T> *root)
+void BinaryTree<T>::in_order_traversal(node<T> *&root)
 {
 
     if (root != nullptr)
@@ -215,7 +220,7 @@ void BinaryTree<T>::level_order_traversal()
 }
 
 template<class T>
-void BinaryTree<T>::level_order_traversal(node<T> *root)
+void BinaryTree<T>::level_order_traversal(node<T> *&root)
 {
     std::queue<node<T> *> queue;
 
@@ -235,11 +240,9 @@ void BinaryTree<T>::level_order_traversal(node<T> *root)
 
             queue.pop();
 
-            if (temp->left != nullptr)
-                queue.push(temp->left);
+            if (temp->left != nullptr) queue.push(temp->left);
 
-            if (temp->right != nullptr)
-                queue.push(temp->right);
+            if (temp->right != nullptr) queue.push(temp->right);
 
             node_count--;
         }
@@ -248,13 +251,19 @@ void BinaryTree<T>::level_order_traversal(node<T> *root)
     }
 }
 
+template<class T>
+void BinaryTree<T>::right_rotation(node<T> *&root)
+{
+
+}
+
 /**
 	Recursively delete the tree from the children to the root
 
 	@param *root	A pointer to the parent of the current node<T>.
 */
 template<class T>
-void BinaryTree<T>::delete_tree(node<T> *root)
+void BinaryTree<T>::delete_tree(node<T> *&root)
 {
     if (root != nullptr)
     {
@@ -275,84 +284,84 @@ BinaryTree<T>::~BinaryTree()
 
 int main()
 {
-	BinaryTree<int> binary_tree;
+    BinaryTree<int> binary_tree;
 
-	int answer = 0, elem = 0;
+    int answer = 0, elem = 0;
 
-	std::cout << "----- Binary Tree Menu -----\n";
+    std::cout << "----- Binary Tree Menu -----\n";
 
-	std::cout << "1. Insert element to the tree.\n";
-	std::cout << "2. Find element from the tree.\n";
-	std::cout << "3. Display contents of the tree.\n";
-	std::cout << "4. Choose traversal method.\n";
-	std::cout << "5. Quit.\n";
+    std::cout << "1. Insert element to the tree.\n";
+    std::cout << "2. Find element from the tree.\n";
+    std::cout << "3. Display contents of the tree.\n";
+    std::cout << "4. Choose traversal method.\n";
+    std::cout << "5. Quit.\n";
 
-	do
-	{
-		std::cout << "\nTake action: ";
-		std::cin >> answer;
+    do
+    {
+        std::cout << "\nTake action: ";
+        std::cin >> answer;
 
-		switch (answer)
-		{
-		case 1:
-			std::cout << "Enter an element: ";
-			std::cin >> elem;
+        switch (answer)
+        {
+            case 1:
+                std::cout << "Enter an element: ";
+                std::cin >> elem;
 
-			binary_tree.insert(elem);
-			break;
-
-		case 2:
-			std::cout << "Enter an element: ";
-			std::cin >> elem;
-
-			binary_tree.find_key(elem);
-			break;
-
-		case 3:
-			binary_tree.display_tree();
-
-			break;
-
-		case 4:
-			std::cout << "1. Post Order Traversal.\n";
-			std::cout << "2. In Order Traversal.\n";
-			std::cout << "3. Pre Order Traversal.\n";
-			std::cout << "4. Level Order Traversal.\n";
-
-			std::cout << "Take action: ";
-			std::cin >> answer;
-
-				switch(answer)
-				{
-					case 1:
-						binary_tree.post_order_traversal();
-                        break;
-
-					case 2:
-						binary_tree.in_order_traversal();
-                        break;
-
-					case 3:
-						binary_tree.pre_order_traversal();
-                        break;
-
-					case 4:
-						binary_tree.level_order_traversal();
-                        break;
-
-					default:
-                        continue;
-				}
+                binary_tree.insert(elem);
                 break;
 
-		case 5:
-            exit(0);
+            case 2:
+                std::cout << "Enter an element: ";
+                std::cin >> elem;
 
-        default:
-            continue;
-		}
+                binary_tree.find_key(elem);
+                break;
 
-	} while ((bool)answer);
+            case 3:
+                binary_tree.display_tree();
 
-	return 0;
+                break;
+
+            case 4:
+                std::cout << "1. Post Order Traversal.\n";
+                std::cout << "2. In Order Traversal.\n";
+                std::cout << "3. Pre Order Traversal.\n";
+                std::cout << "4. Level Order Traversal.\n";
+
+                std::cout << "Take action: ";
+                std::cin >> answer;
+
+                switch (answer)
+                {
+                    case 1:
+                        binary_tree.post_order_traversal();
+                        break;
+
+                    case 2:
+                        binary_tree.in_order_traversal();
+                        break;
+
+                    case 3:
+                        binary_tree.pre_order_traversal();
+                        break;
+
+                    case 4:
+                        binary_tree.level_order_traversal();
+                        break;
+
+                    default:
+                        continue;
+                }
+                break;
+
+            case 5:
+                exit(0);
+
+            default:
+                continue;
+        }
+
+    } while ((bool) answer);
+
+    return 0;
 }

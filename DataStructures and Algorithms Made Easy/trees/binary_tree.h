@@ -11,6 +11,10 @@ struct node
     T key;
     node *left;
     node *right;
+
+    int height;
+
+    node(const T &new_key, node *l, node *r, int h = 0) : key(new_key), left(l), right(r), height(h){}
 };
 
 template<class T>
@@ -21,11 +25,11 @@ public:
 
     ~BinaryTree();
 
-    void find_key(T key);
+    void find_key(const T &key);
 
     void display_tree();
 
-    void insert(T key);
+    void insert(const T &key);
 
     void level_order_traversal();
 
@@ -37,21 +41,25 @@ public:
 
 private:
 
-    void find_key(node<T> *root, T key);
+    void find_key(node<T> *&root, const T &key);
 
-    void display_tree(node<T> *root, int indent);
+    void display_tree(node<T> *&root, int indent);
 
-    void insert(node<T> *root, T key);
+    void insert(node<T> *&root, const T &key);
 
-    void delete_tree(node<T> *root);
+    void delete_tree(node<T> *&root);
 
-    void level_order_traversal(node<T> *root);
+    void level_order_traversal(node<T> *&root);
 
-    void post_order_traversal(node<T> *root);
+    void post_order_traversal(node<T> *&root);
 
-    void pre_order_traversal(node<T> *root);
+    void pre_order_traversal(node<T> *&root);
 
-    void in_order_traversal(node<T> *root);
+    void in_order_traversal(node<T> *&root);
+
+    void right_rotation(node<T> *&root);
+
+    void left_rotation(node<T> *&root);
 
     node<T> *root{};
 };
