@@ -12,22 +12,25 @@
 
 struct node
 {
-	int key;
-	struct node *next;
+    int key;
+    struct node *next;
 };
 
 struct queue
 {
-	struct node *front;
-	struct node *end;
+    struct node *front;
+    struct node *end;
 };
 
 /** Prototypes */
 static struct queue *en_queue(struct queue *que, int key);
+
 static struct queue *de_queue(struct queue *que);
+
 static struct queue *create_queue();
 
 static void display_queue(struct queue *que);
+
 static void delete_queue(struct queue *que);
 
 /**
@@ -35,15 +38,15 @@ static void delete_queue(struct queue *que);
 */
 static struct queue *create_queue()
 {
-	struct queue *que = (struct queue*)malloc(sizeof(struct queue));
+    struct queue *que = (struct queue *) malloc(sizeof(struct queue));
 
-	if (que == NULL)
-		exit(0);
+    if (que == NULL)
+        exit(0);
 
-	que->end = NULL;
-	que->front = NULL;
+    que->end = NULL;
+    que->front = NULL;
 
-	return que;
+    return que;
 }
 
 /**
@@ -55,24 +58,24 @@ static struct queue *create_queue()
 */
 static struct queue *en_queue(struct queue *que, int key)
 {
-	struct node *temp;
+    struct node *temp;
 
-	temp = (struct node*)malloc(sizeof(struct node));
+    temp = (struct node *) malloc(sizeof(struct node));
 
-	temp->key = key;
-	temp->next = NULL;
-	
-	if (que->front == NULL)
-	
-		que->front = que->end = temp;
-	
-	else 
-	{
-		que->end->next = temp;
-		que->end = temp;
-	}
+    temp->key = key;
+    temp->next = NULL;
 
-	return que;
+    if (que->front == NULL)
+
+        que->front = que->end = temp;
+
+    else
+    {
+        que->end->next = temp;
+        que->end = temp;
+    }
+
+    return que;
 }
 
 /**
@@ -83,21 +86,21 @@ static struct queue *en_queue(struct queue *que, int key)
 */
 static struct queue *de_queue(struct queue *que)
 {
-	if (que->front == NULL)
-	
-		printf("The Queue is Empty!\n");
-	
-	else
-	{
-		struct node *temp = que->front;
-		que->front = que->front->next;
+    if (que->front == NULL)
 
-		printf("The de queued element is: %d\n", temp->key);
+        printf("The Queue is Empty!\n");
 
-		free(temp);
-	}
+    else
+    {
+        struct node *temp = que->front;
+        que->front = que->front->next;
 
-	return que;
+        printf("The de queued element is: %d\n", temp->key);
+
+        free(temp);
+    }
+
+    return que;
 }
 
 /**
@@ -107,17 +110,17 @@ static struct queue *de_queue(struct queue *que)
 */
 static void delete_queue(struct queue *que)
 {
-	struct node *temp;
+    struct node *temp;
 
-	while (que->front != NULL)
-	{
-		temp = que->front;
-		que->front = que->front->next;
+    while (que->front != NULL)
+    {
+        temp = que->front;
+        que->front = que->front->next;
 
-		free(temp);
-	}
+        free(temp);
+    }
 
-	free(que);
+    free(que);
 }
 
 /**
@@ -127,25 +130,25 @@ static void delete_queue(struct queue *que)
 */
 static void display_queue(struct queue *que)
 {
-	struct node *temp;
+    struct node *temp;
 
-	if (que->front == NULL)
+    if (que->front == NULL)
 
-		printf("The Queue is Empty!\n");
+        printf("The Queue is Empty!\n");
 
-	else 
-	{
-		temp = que->front;
-		
-		while (temp->next != NULL) 
-		{
-			printf("%d--->", temp->key);
-			
-			temp = temp->next;
-		}
+    else
+    {
+        temp = que->front;
 
-		printf("%d--->NULL\n", temp->key);
-	}
+        while (temp->next != NULL)
+        {
+            printf("%d--->", temp->key);
+
+            temp = temp->next;
+        }
+
+        printf("%d--->NULL\n", temp->key);
+    }
 }
 /*
 int main()
