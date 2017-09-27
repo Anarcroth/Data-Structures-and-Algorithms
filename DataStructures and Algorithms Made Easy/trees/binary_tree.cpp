@@ -19,7 +19,7 @@
 	@param key		The element to be inserted.
 */
 template<class T>
-void BinaryTree<T>::insert(const T &key)
+void BinaryTree<T>::insert(T &key)
 {
     if (root != nullptr)
     {
@@ -38,7 +38,7 @@ void BinaryTree<T>::insert(const T &key)
 	@param key		The element to be inserted.
 */
 template<class T>
-void BinaryTree<T>::insert(node<T> *&root, const T &key)
+void BinaryTree<T>::insert(node<T> *&root, T &key)
 {
     if (key < root->key)
     {
@@ -48,7 +48,7 @@ void BinaryTree<T>::insert(node<T> *&root, const T &key)
         }
         else
         {
-            root = new node<T>(key, nullptr, nullptr);
+            root->left = new node<T>(key, nullptr, nullptr);
         }
     }
     else
@@ -59,7 +59,7 @@ void BinaryTree<T>::insert(node<T> *&root, const T &key)
         }
         else
         {
-            root = new node<T>(key, nullptr, nullptr);
+            root->right = new node<T>(key, nullptr, nullptr);
         }
     }
 }
@@ -70,7 +70,7 @@ void BinaryTree<T>::insert(node<T> *&root, const T &key)
 	@param key		The element to be inserted.
 */
 template<class T>
-void BinaryTree<T>::find_key(const T &key)
+void BinaryTree<T>::find_key(T &key)
 {
     if (root != nullptr)
     {
@@ -89,7 +89,7 @@ void BinaryTree<T>::find_key(const T &key)
 	@param key		The element to be inserted.
 */
 template<class T>
-void BinaryTree<T>::find_key(node<T> *&root, const T &key)
+void BinaryTree<T>::find_key(node<T> *&root, T &key)
 {
     if (key == root->key)
     {
@@ -125,13 +125,22 @@ void BinaryTree<T>::display_tree()
 template<class T>
 void BinaryTree<T>::display_tree(node<T> *&root, int indent)
 {
-    if ((bool) indent) std::cout << std::setw(indent) << " ";
+    if ((bool) indent)
+    {
+        std::cout << std::setw(indent) << " ";
+    }
 
-    std::cout << *&root->key << std::endl;
+    std::cout << root->key << std::endl;
 
-    if (root->left != nullptr) display_tree(root->left, indent + 4);
+    if (root->left != nullptr)
+    {
+        display_tree(root->left, indent + 4);
+    }
 
-    if (root->right != nullptr) display_tree(root->right, indent + 4);
+    if (root->right != nullptr)
+    {
+        display_tree(root->right, indent + 4);
+    }
 }
 
 template<class T>

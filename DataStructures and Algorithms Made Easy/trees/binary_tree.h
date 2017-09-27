@@ -9,12 +9,14 @@ template<class T>
 struct node
 {
     T key;
+
     node *left;
     node *right;
 
     int height;
 
-    node(const T &new_key, node *l, node *r, int h = 0) : key(new_key), left(l), right(r), height(h){}
+    node(T new_key, node<T> *l, node<T> *r, int h = 0) : key(new_key), left(l), right(r), height(h)
+    {}
 };
 
 template<class T>
@@ -25,11 +27,11 @@ public:
 
     ~BinaryTree();
 
-    void find_key(const T &key);
+    void find_key(T &key);
 
     void display_tree();
 
-    void insert(const T &key);
+    void insert(T &key);
 
     void level_order_traversal();
 
@@ -41,11 +43,11 @@ public:
 
 private:
 
-    void find_key(node<T> *&root, const T &key);
+    void find_key(node<T> *&root, T &key);
 
     void display_tree(node<T> *&root, int indent);
 
-    void insert(node<T> *&root, const T &key);
+    void insert(node<T> *&root, T &key);
 
     void delete_tree(node<T> *&root);
 
