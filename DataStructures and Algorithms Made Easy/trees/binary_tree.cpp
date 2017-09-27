@@ -40,68 +40,50 @@ void BinaryTree<T>::insert(const T &key)
 template<class T>
 void BinaryTree<T>::insert(node<T> *&root, const T &key)
 {
-    if (key < root->key)
+    if (root == nullptr)
     {
-        if (root->left != nullptr)
-        {
-            insert(root->left, key);
+        root = new node<T>(key, nullptr, nullptr);
+    }
+    else if (key < root->key)
+    {
+        insert(root->left, key);
 
-            if (height(root->left) - height(root->right) == 2)
-            {
-                if (key < root->left->key)
-                {
-                    left_rotation(root);
-                }
-                else
-                {
-                    double_left_rotation(root);
-                }
-            }
-        }
-        else
+        if (height(root->left) - height(root->right) == 2)
         {
-            root->left = new node<T>(key, nullptr, nullptr);
+            if (key < root->left->key)
+            {
+                left_rotation(root);
+            }
+            else
+            {
+                double_left_rotation(root);
+            }
         }
     }
     else if (key > root->key)
     {
-        if (root->right != nullptr)
-        {
-            insert(root->right, key);
+        insert(root->right, key);
 
-            if (height(root->left) - height(root->right) == 2)
+        if (height(root->right) - height(root->left) == 2)
+        {
+            if (key > root->right->key)
             {
-                if (key > root->right->key)
-                {
-                    right_rotation(root);
-                }
-                else
-                {
-                    double_right_rotation(root);
-                }
+                right_rotation(root);
+            }
+            else
+            {
+                double_right_rotation(root);
             }
         }
-        else
-        {
-            root->right = new node<T>(key, nullptr, nullptr);
-        }
     }
-    else
-    {
-        root->height = max(height(root->left), height(root->right)) + 1;
-    }
+
+    root->height = std::max(height(root->left), height(root->right)) + 1;
 }
 
 template<class T>
 int BinaryTree<T>::height(node<T> *&root)
 {
     return root != nullptr ? root->height : -1;
-}
-
-template<class T>
-int BinaryTree<T>::max(int a, int b)
-{
-    return a > b ? a : b;
 }
 
 /**
@@ -307,8 +289,8 @@ void BinaryTree<T>::right_rotation(node<T> *&root)
     root->right = temp->left;
     temp->left = root;
 
-    root->height = (root->left->height > root->right->height) ? root->left->height : root->right->height + 1;
-    temp->height = (temp->left->height > temp->right->height) ? temp->left->height : temp->right->height + 1;
+    root->height = std::max(height(root->left), height(root->right)) + 1;
+    temp->height = std::max(height(temp->left), height(temp->right)) + 1;
     root = temp;
 }
 
@@ -326,8 +308,8 @@ void BinaryTree<T>::left_rotation(node<T> *&root)
     root->left = temp->right;
     temp->right = root;
 
-    root->height = (root->left->height > root->right->height) ? root->left->height : root->right->height + 1;
-    temp->height = (temp->left->height > temp->right->height) ? temp->left->height : temp->right->height + 1;
+    root->height = std::max(height(root->left), height(root->right)) + 1;
+    temp->height = std::max(height(temp->left), height(temp->right)) + 1;
     root = temp;
 }
 

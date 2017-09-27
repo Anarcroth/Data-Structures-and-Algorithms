@@ -69,8 +69,6 @@ private:
 
     int height(node<T> *&root);
 
-    int max(int a, int b);
-
     node<T> *root{};
 };
 
