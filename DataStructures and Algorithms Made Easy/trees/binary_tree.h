@@ -8,7 +8,7 @@
 template<class T>
 struct node
 {
-    T key;
+    const T key;
 
     node *left;
     node *right;
@@ -27,11 +27,11 @@ public:
 
     ~BinaryTree();
 
-    void find_key(T &key);
+    void find_key(const T &key);
 
     void display_tree();
 
-    void insert(T &key);
+    void insert(const T &key);
 
     void level_order_traversal();
 
@@ -43,11 +43,11 @@ public:
 
 private:
 
-    void find_key(node<T> *&root, T &key);
+    void find_key(node<T> *&root, const T &key);
 
     void display_tree(node<T> *&root, int indent);
 
-    void insert(node<T> *&root, T &key);
+    void insert(node<T> *&root, const T &key);
 
     void delete_tree(node<T> *&root);
 
@@ -61,7 +61,15 @@ private:
 
     void right_rotation(node<T> *&root);
 
+    void double_right_rotation(node<T> *&root);
+
     void left_rotation(node<T> *&root);
+
+    void double_left_rotation(node<T> *&root);
+
+    int height(node<T> *&root);
+
+    int max(int a, int b);
 
     node<T> *root{};
 };

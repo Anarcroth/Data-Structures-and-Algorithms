@@ -19,7 +19,7 @@
 	@param key		The element to be inserted.
 */
 template<class T>
-void BinaryTree<T>::insert(T &key)
+void BinaryTree<T>::insert(const T &key)
 {
     if (root != nullptr)
     {
@@ -38,30 +38,70 @@ void BinaryTree<T>::insert(T &key)
 	@param key		The element to be inserted.
 */
 template<class T>
-void BinaryTree<T>::insert(node<T> *&root, T &key)
+void BinaryTree<T>::insert(node<T> *&root, const T &key)
 {
     if (key < root->key)
     {
         if (root->left != nullptr)
         {
             insert(root->left, key);
+
+            if (height(root->left) - height(root->right) == 2)
+            {
+                if (key < root->left->key)
+                {
+                    left_rotation(root);
+                }
+                else
+                {
+                    double_left_rotation(root);
+                }
+            }
         }
         else
         {
             root->left = new node<T>(key, nullptr, nullptr);
         }
     }
-    else
+    else if (key > root->key)
     {
         if (root->right != nullptr)
         {
             insert(root->right, key);
+
+            if (height(root->left) - height(root->right) == 2)
+            {
+                if (key > root->right->key)
+                {
+                    right_rotation(root);
+                }
+                else
+                {
+                    double_right_rotation(root);
+                }
+            }
         }
         else
         {
             root->right = new node<T>(key, nullptr, nullptr);
         }
     }
+    else
+    {
+        root->height = max(height(root->left), height(root->right)) + 1;
+    }
+}
+
+template<class T>
+int BinaryTree<T>::height(node<T> *&root)
+{
+    return root != nullptr ? root->height : -1;
+}
+
+template<class T>
+int BinaryTree<T>::max(int a, int b)
+{
+    return a > b ? a : b;
 }
 
 /**
@@ -70,7 +110,7 @@ void BinaryTree<T>::insert(node<T> *&root, T &key)
 	@param key		The element to be inserted.
 */
 template<class T>
-void BinaryTree<T>::find_key(T &key)
+void BinaryTree<T>::find_key(const T &key)
 {
     if (root != nullptr)
     {
@@ -89,7 +129,7 @@ void BinaryTree<T>::find_key(T &key)
 	@param key		The element to be inserted.
 */
 template<class T>
-void BinaryTree<T>::find_key(node<T> *&root, T &key)
+void BinaryTree<T>::find_key(node<T> *&root, const T &key)
 {
     if (key == root->key)
     {
@@ -263,7 +303,39 @@ void BinaryTree<T>::level_order_traversal(node<T> *&root)
 template<class T>
 void BinaryTree<T>::right_rotation(node<T> *&root)
 {
+    auto *temp = root->right;
+    root->right = temp->left;
+    temp->left = root;
 
+    root->height = (root->left->height > root->right->height) ? root->left->height : root->right->height + 1;
+    temp->height = (temp->left->height > temp->right->height) ? temp->left->height : temp->right->height + 1;
+    root = temp;
+}
+
+template<class T>
+void BinaryTree<T>::double_right_rotation(node<T> *&root)
+{
+    left_rotation(root->right);
+    right_rotation(root);
+}
+
+template<class T>
+void BinaryTree<T>::left_rotation(node<T> *&root)
+{
+    auto *temp = root->left;
+    root->left = temp->right;
+    temp->right = root;
+
+    root->height = (root->left->height > root->right->height) ? root->left->height : root->right->height + 1;
+    temp->height = (temp->left->height > temp->right->height) ? temp->left->height : temp->right->height + 1;
+    root = temp;
+}
+
+template<class T>
+void BinaryTree<T>::double_left_rotation(node<T> *&root)
+{
+    right_rotation(root->left);
+    left_rotation(root);
 }
 
 /**
