@@ -10,20 +10,23 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-struct node 
+struct node
 {
-	struct node *next;
-	int key;
+    struct node *next;
+    int key;
 };
 
 /** Prototypes */
-static struct node* pop(struct node *stack, int *element);
-static struct node* push(struct node *stack, int key);
+static struct node *pop(struct node *stack, int *element);
+
+static struct node *push(struct node *stack, int key);
 
 static void display_stack(struct node *stack);
+
 static void delete_stack(struct node *stack);
 
 static int is_empty(struct node *stack);
+
 static int top(struct node *stack);
 
 /**
@@ -33,19 +36,19 @@ static int top(struct node *stack);
 	@param key		The value that is pushed on top
 	@return			Pointer to the new top of the stack
 */
-static struct node* push(struct node *stack, int key)
+static struct node *push(struct node *stack, int key)
 {
-	struct node *temp = (struct node*)malloc(sizeof(struct node));
+    struct node *temp = (struct node *) malloc(sizeof(struct node));
 
-	if (temp == NULL)
-		exit(0);
+    if (temp == NULL)
+        exit(0);
 
-	temp->key = key;
-	temp->next = stack;
+    temp->key = key;
+    temp->next = stack;
 
-	stack = temp;
+    stack = temp;
 
-	return stack;
+    return stack;
 }
 
 /**
@@ -56,7 +59,7 @@ static struct node* push(struct node *stack, int key)
 */
 static int top(struct node *stack)
 {
-	return stack->key;
+    return stack->key;
 }
 
 /**
@@ -66,19 +69,19 @@ static int top(struct node *stack)
 	@param *element	Pointer to the element that will hold the top key of the stack
 	@return			Pointer to the new top of the stack
 */
-static struct node* pop(struct node *stack, int *element)
+static struct node *pop(struct node *stack, int *element)
 {
-	if (is_empty(stack))
-	{
-		printf("The Stack is empty.\n");
+    if (is_empty(stack))
+    {
+        printf("The Stack is empty.\n");
 
-		return NULL;
-	}
+        return NULL;
+    }
 
-	*element = stack->key;
-	stack = stack->next;
+    *element = stack->key;
+    stack = stack->next;
 
-	return stack;
+    return stack;
 }
 
 /**
@@ -89,21 +92,20 @@ static struct node* pop(struct node *stack, int *element)
 */
 static void display_stack(struct node *stack)
 {
-	if (!is_empty(stack))
-	{
-		printf("Stack: ");
-	
-		do
-		{
-			printf("%d ", stack->key);
-			stack = stack->next;
+    if (!is_empty(stack))
+    {
+        printf("Stack: \n");
 
-		} while (stack != NULL);
-		
-		printf("\n");
-	}
-	else
-		printf("The Stack is is empty.\n");
+        do
+        {
+            printf("%d\n", stack->key);
+            stack = stack->next;
+
+        } while (stack != NULL);
+
+        printf("\n");
+    } else
+        printf("The Stack is is empty.\n");
 
 }
 
@@ -115,7 +117,7 @@ static void display_stack(struct node *stack)
 */
 static int is_empty(struct node *stack)
 {
-	return stack == NULL;
+    return stack == NULL;
 }
 
 /**
@@ -126,23 +128,23 @@ static int is_empty(struct node *stack)
 
 static void delete_stack(struct node *stack)
 {
-	if (!is_empty(stack))
-	{
-		struct node *temp = (struct node*)malloc(sizeof(struct node));
+    if (!is_empty(stack))
+    {
+        struct node *temp = (struct node *) malloc(sizeof(struct node));
 
-		if (temp == NULL)
-			exit(0);
+        if (temp == NULL)
+            exit(0);
 
-		while (stack->next != NULL)
-		{
-			temp = stack;
-			stack = stack->next;
-		}
+        while (stack->next != NULL)
+        {
+            temp = stack;
+            stack = stack->next;
+        }
 
-		free(temp);
-	}
+        free(temp);
+    }
 
-	free(stack);
+    free(stack);
 }
 /*
 int main(void)
