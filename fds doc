@@ -33,13 +33,29 @@
 	3.4 Problems
 	
 	
-4. Binray Trees
+4. Trees
+	
+	4.1 Binary Trees in **C++**
+	4.2 Binary Search Trees **C++**
+	4.3 AVL Trees **C++**
+	4.4 B-Trees **C++**
+	4.5 Problems
 
-5. B-Trees
+5. Sorting Algorithms
 
-6. Practice problems
+	5.1 Bubble Sort
+	5.2 Insertion Sort
+	5.3 Selection Sort
+	5.4 Quick Sort
+	5.5 Merge Sort
 
-7. Basic concepts of **C/C++**
+6. Graphs
+
+7. Hashing
+
+8. Practice problems
+
+9. Basic concepts of **C/C++**
 
 ---
 

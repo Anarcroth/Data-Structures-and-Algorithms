@@ -1,10 +1,10 @@
 /**
 	COS: FDS
 	binary_tree.cpp
-	Purpose:	Create binary tree holding generics
+	Purpose: Create an AVL tree holding any type.
 
 	@author:	Martin Nestorov
-	@version:	0.2.0 27/08/2017
+	@version:	1.0.0 27/08/2017
 */
 
 #include <iostream>
@@ -250,6 +250,11 @@ void BinaryTree<T>::level_order_traversal()
     }
 }
 
+/*
+ * Visit each node of the tree by levels, displaying them from the top down
+ *
+ * @param root      A pointer to the parent of the current node<T>/
+ */
 template<class T>
 void BinaryTree<T>::level_order_traversal(node<T> *&root)
 {
