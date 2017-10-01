@@ -33,29 +33,13 @@
 	3.4 Problems
 	
 	
-4. Trees
-	
-	4.1 Binary Trees in **C++**
-	4.2 Binary Search Trees **C++**
-	4.3 AVL Trees **C++**
-	4.4 B-Trees **C++**
-	4.5 Problems
+4. Binray Trees
 
-5. Sorting Algorithms
+5. B-Trees
 
-	5.1 Bubble Sort
-	5.2 Insertion Sort
-	5.3 Selection Sort
-	5.4 Quick Sort
-	5.5 Merge Sort
+6. Practice problems
 
-6. Graphs
-
-7. Hashing
-
-8. Practice problems
-
-9. Basic concepts of **C/C++**
+7. Basic concepts of **C/C++**
 
 ---
 
@@ -63,11 +47,15 @@
 
 *Linked Lists vs. Arrays* - Both linked lists and arrays do fairly similar things, but there are several fundamental differences between the two.
 
+<<<<<<< HEAD:fds doc
 <<<<<<< HEAD
 **--- 1.1 Arrays ---**
 =======
 **--Arrays--**
 >>>>>>> 1384c68... Added stack files
+=======
+**--- 1.1 Arrays ---**
+>>>>>>> 512a6df... Renamed documentation file and added proper readme file:DOCUMENTATION.md
 
 >*Arrays*  allocate an entire memory block to hold the elements. The first element in an array always has an index of *0 (zero)*, and if the array has *n* elements the last element will have the index *n - 1*. 
 
@@ -309,7 +297,10 @@ Space Complexity: **O(n)**
 #####Basic Queue methods
 
 ~~~c
+<<<<<<< HEAD:fds doc
 <<<<<<< HEAD
+=======
+>>>>>>> 512a6df... Renamed documentation file and added proper readme file:DOCUMENTATION.md
 struct queue *en_queue(struct queue *que, int key);
 struct queue *de_queue(struct queue *que);
 struct queue *create_queue();
@@ -319,6 +310,7 @@ void delete_queue(struct queue *que);
 ~~~
 
 ---
+<<<<<<< HEAD:fds doc
 ####Useful Links: 
 https://stackoverflow.com/questions/2229498/passing-by-reference-in-c
 
@@ -329,6 +321,57 @@ exit(EXIT_FAILURE);
 http://
 
 www.guideforschool.com/625348-memory-address-calculation-in-an-array/
+=======
+
+**C/C++ bonus information**
+
+*Extern:* Extern is a function in C++, which comes in useful when you have global variables.
+The existance of globl variablesare declared in a header file, so that each source file
+that includes the header knows about it, but the variables need to be defined only once in 
+a source file
+
+*Compiling a C++ program:* The precedence among the syntax rules of translation is specified by the following phases.
+
+1. Physical source files characters are mapped, in an implementation-defined manner, to the basic 
+source character set (introducing new-line characters for end-of-line indicators) if necessary.
+
+2. Each instance of a backslash character **\\** immediately followed by a new-line character is deleted, splicing physycal source lines to form logical source lines.
+
+3. The source file is decompressed into processing rokens and sequences of white-space
+characters (including characters).
+
+4. Preprocessing directives are executed, macro invocations are expanded, and _pragma unary
+operator expressions are executed.
+
+5. Each source character set member in a character literal or a string literal, as well as each escape
+sequence and universal-character-name in a charecter literal or non-raw string literal, is converted
+to the corresponding member of the execution character set.
+
+6. Adjecent string literal tokens are concatenated.
+
+7. White-space characters separating tokens are no longer significant. Each processing token
+is converted into a token. The resulting tokens are syntatically and semantically analyzed
+and translatedas a translation unit.
+
+8. Translated translation units are combined as follows:
+
+9. All external entity references are resolved. Library components are linked to satisfy 
+external references to entities not defined in the current translaio. All suchtranslator
+output is collected into a program image which contains information needed for execution
+in its execution environment.
+
+[Implementation must behave as if these separate phases occur, although in practice different
+phases might be folded together]
+
+---
+####Useful Links: 
+https://stackoverflow.com/questions/2229498/passing-by-reference-in-c
+
+https://stackoverflow.com/questions/13654138/what-exactly-is-the-difference-between-pass-by-reference-in-c-and-in-c
+
+www.guideforschool.com/625348-memory-address-calculation-in-an-array/
+
+>>>>>>> 512a6df... Renamed documentation file and added proper readme file:DOCUMENTATION.md
 "the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the caesium 133 atom"
 
 erowid.org
@@ -337,6 +380,7 @@ stackoverflow.com/admin.php
 
 https://wildlyinaccurate.com/a-hackers-guide-to-git/#tree-objects
 
+<<<<<<< HEAD:fds doc
 ---
 =======
 void en_queue(queue *q, int key)
@@ -344,3 +388,8 @@ int de_queue(queue *q)
 void delete_queue(queue *q)
 ~~~
 >>>>>>> 1384c68... Added stack files
+=======
+http://www.saedsayad.com/decision_tree.htm
+
+---
+>>>>>>> 512a6df... Renamed documentation file and added proper readme file:DOCUMENTATION.md
