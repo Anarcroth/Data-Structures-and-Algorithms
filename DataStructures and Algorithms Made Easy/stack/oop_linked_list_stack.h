@@ -23,7 +23,7 @@ public:
 
     void push(int &key);
 
-    bool is_empty();
+    bool inline is_empty();
 
     int pop();
 

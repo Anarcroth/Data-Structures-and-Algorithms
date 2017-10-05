@@ -349,8 +349,8 @@ BinaryTree<T>::~BinaryTree()
 {
     delete_tree(root);
 }
-
-int main()
+/*
+nt main()
 {
     BinaryTree<int> binary_tree;
 
@@ -433,3 +433,4 @@ int main()
 
     return 0;
 }
+*/

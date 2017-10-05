@@ -67,7 +67,7 @@ private:
 
     void double_left_rotation(node<T> *&root);
 
-    int height(node<T> *&root);
+    int inline height(node<T> *&root);
 
     node<T> *root{};
 };

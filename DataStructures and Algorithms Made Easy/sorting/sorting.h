@@ -22,13 +22,13 @@ public:
 
     void quick_sort(std::vector <T> &array, int low, int high);
 
-    void swap(T *low, T *high);
+    void inline swap(T *low, T *high);
 
     void merge(std::vector <T> &array, int left, int middle, int right);
 
     void merge_sort(std::vector <T> &array, int left, int right);
 
-    void display(std::vector <T> &array);
+    void inline display(std::vector <T> &array);
 };
 
 
