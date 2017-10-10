@@ -57,51 +57,6 @@ node *node::search(int k)
     return C[i]->search(k);
 }
 
-BTree::BTree(int t) : t(t), root(nullptr)
-{
-
-}
-
-void BTree::insert(int k)
-{
-    if (root == nullptr)
-    {
-        root = new node(t, true);
-        root->keys[0] = k;
-        root->num_keys = 1;
-    }
-    else
-    {
-        if (root->num_keys == 2 * t - 1)
-        {
-            auto *s = new node(t, false);
-
-            // Make old root as child of new root.
-            s->C[0] = root;
-
-            // Split the old root and move 1 key to the new root
-            s->splitChild(0, root);
-
-            // New root has two children now.  Decide which of the
-            // two children is going to have new key
-            int i = 0;
-            if (s->keys[0] < k)
-            {
-                i++;
-            }
-
-            s->C[i]->insertNonFull(k);
-
-            root = s;
-        }
-        else
-        {
-            root->insertNonFull(k);
-        }
-    }
-}
-
-
 void node::insertNonFull(int k)
 {
     int i = num_keys - 1;
@@ -176,25 +131,110 @@ void node::splitChild(int i, node *y)
     num_keys = num_keys + 1;
 }
 
+BTree::BTree(int t) : t(t), root(nullptr)
+{
+
+}
+
+void BTree::insert(int k)
+{
+    if (root == nullptr)
+    {
+        root = new node(t, true);
+        root->keys[0] = k;
+        root->num_keys = 1;
+    }
+    else
+    {
+        if (root->num_keys == 2 * t - 1)
+        {
+            auto *s = new node(t, false);
+
+            // Make old root as child of new root.
+            s->C[0] = root;
+
+            // Split the old root and move 1 key to the new root
+            s->splitChild(0, root);
+
+            // New root has two children now.  Decide which of the
+            // two children is going to have new key
+            int i = 0;
+            if (s->keys[0] < k)
+            {
+                i++;
+            }
+
+            s->C[i]->insertNonFull(k);
+
+            root = s;
+        }
+        else
+        {
+            root->insertNonFull(k);
+        }
+    }
+}
+
+void BTree::traverse()
+{
+    if (root != nullptr)
+    {
+        root->traverse();
+    }
+}
+
+node *BTree::search(int k)
+{
+    return (root == nullptr) ? nullptr : root->search(k);
+}
+
 int main()
 {
     BTree tree(3);
-    tree.insert(10);
-    tree.insert(20);
-    tree.insert(5);
-    tree.insert(6);
-    tree.insert(12);
-    tree.insert(30);
-    tree.insert(7);
-    tree.insert(17);
 
-    std::cout << "Traversal of the constucted tree is ";
-    tree.traverse();
+    int answer = 0, elem = 0;
 
-    int k = 6;
-    (tree.search(k) != nullptr) ? std::cout << "\nPresent" : std::cout << "\nNot Present";
+    std::cout << "----- B-Tree Menu -----\n";
 
-    k = 15;
-    (tree.search(k) != nullptr) ? std::cout << "\nPresent" : std::cout << "\nNot Present";
+    std::cout << "1. Insert element to the tree.\n";
+    std::cout << "2. Find element from the tree.\n";
+    std::cout << "3. Display contents of the tree.\n";
+    std::cout << "4. Quit.\n";
+
+    do
+    {
+        std::cout << "\nTake action: ";
+        std::cin >> answer;
+
+        switch (answer)
+        {
+            case 1:
+                std::cout << "Enter an element: ";
+                std::cin >> elem;
+
+                tree.insert(elem);
+                break;
+
+            case 2:
+                std::cout << "Enter an element: ";
+                std::cin >> elem;
+
+                (tree.search(elem) != nullptr) ? std::cout << "Found element!" : std::cout << "Didn't find element.\n";
+                break;
+
+            case 3:
+                tree.traverse();
+
+                break;
+
+            case 4:
+                exit(0);
+
+            default:
+                continue;
+        }
+
+    } while ((bool) answer);
+
     return 0;
 }

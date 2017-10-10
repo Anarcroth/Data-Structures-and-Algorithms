@@ -356,7 +356,7 @@ nt main()
 
     int answer = 0, elem = 0;
 
-    std::cout << "----- Binary Tree Menu -----\n";
+    std::cout << "----- BST/AVL Tree Menu -----\n";
 
     std::cout << "1. Insert element to the tree.\n";
     std::cout << "2. Find element from the tree.\n";
