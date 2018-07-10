@@ -1,20 +1,6 @@
-/**
-	COS: FDS
-	linked_list.cpp
-	Purpose:	Create linked list holding generics
-
-	@author:	Martin Nestorov
-	@version:	0.1.0 15/07/2017
-*/
-
-#include<iostream>
+#include <iostream>
 #include "linked_list.h"
 
-/**
-	Create either the beginning of the list, or insert a new node to it
-
-	@param value The value to be inserted.
-*/
 template<class T>
 void LinkedList<T>::insert_node(T value)
 {
@@ -22,14 +8,13 @@ void LinkedList<T>::insert_node(T value)
     temp->data = value;
     temp->next = nullptr;
 
-    // If there isn't a beginning of the linked list,
-    // create one and assign the head to the temp node.
     if (head == nullptr)
     {
         head = temp;
         tail = temp;
         temp = nullptr;
-    } else
+    }
+    else
     {
         tail->next = temp;
         tail = temp;
@@ -37,13 +22,10 @@ void LinkedList<T>::insert_node(T value)
     }
 }
 
-/**
-	Display every node from the HEAD.
-*/
 template<class T>
 void LinkedList<T>::display()
 {
-    auto *temp = head; // Use a temp node to traverse the list.
+    auto *temp = head;
 
     while (temp != nullptr)
     {
@@ -54,11 +36,6 @@ void LinkedList<T>::display()
     std::cout << std::endl;
 }
 
-/**
-	Insert a node to the start of the list and push the current head one position bellow
-	
-	@param value The value to be inserted.
-*/
 template<class T>
 void LinkedList<T>::insert_start(T value)
 {
@@ -68,10 +45,6 @@ void LinkedList<T>::insert_start(T value)
     head = temp;
 }
 
-/**
-	Delete the last node of the list. The current node reaches the last node and is deleted, 
-	while the previous node becomes the tail of the list
-*/
 template<class T>
 void LinkedList<T>::delete_last()
 {
@@ -92,12 +65,6 @@ void LinkedList<T>::delete_last()
     delete current;
 }
 
-/**
-	Insert a node at a specific position, where the temp node holds the value we want to insert
-
-	@param pos The insertion position.
-	@param value The value to be inserted.
-*/
 template<class T>
 void LinkedList<T>::insert_position(T value, T pos)
 {
@@ -128,9 +95,6 @@ void LinkedList<T>::insert_position(T value, T pos)
     temp->next = current;
 }
 
-/**
-	Delete the HEAD of the list
-*/
 template<class T>
 void LinkedList<T>::delete_first()
 {
@@ -141,9 +105,6 @@ void LinkedList<T>::delete_first()
     delete temp;
 }
 
-/**
-	For a specified position, find that node and delete it from the list
-*/
 template<class T>
 void LinkedList<T>::delete_position(T pos)
 {
@@ -180,7 +141,7 @@ LinkedList<T>::~LinkedList()
 
     delete head, tail;
 }
-/*
+
 int main()
 {
     LinkedList<int> linked_list;
@@ -241,4 +202,4 @@ int main()
     } while ((bool) answer);
 
     return 0;
-}*/
+}
