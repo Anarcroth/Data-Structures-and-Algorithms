@@ -163,40 +163,40 @@ int main()
 
         switch (answer)
         {
-            case 1:
-                std::cout << "Enter an element: ";
-                std::cin >> elem;
+        case 1:
+            std::cout << "Enter an element: ";
+            std::cin >> elem;
 
-                linked_list.insert_node(elem);
-                break;
+            linked_list.insert_node(elem);
+            break;
 
-            case 2:
-                std::cout << "Enter an element: ";
-                std::cin >> elem;
-                std::cout << "Enter a position: ";
-                std::cin >> pos;
+        case 2:
+            std::cout << "Enter an element: ";
+            std::cin >> elem;
+            std::cout << "Enter a position: ";
+            std::cin >> pos;
 
-                linked_list.insert_position(elem, pos);
-                break;
+            linked_list.insert_position(elem, pos);
+            break;
 
-            case 3:
-                linked_list.display();
+        case 3:
+            linked_list.display();
 
-                break;
+            break;
 
-            case 4:
-                std::cout << "Enter a position to delete: ";
-                std::cin >> pos;
+        case 4:
+            std::cout << "Enter a position to delete: ";
+            std::cin >> pos;
 
-                linked_list.delete_position(pos);
+            linked_list.delete_position(pos);
 
-                break;
+            break;
 
-            case 5:
-                exit(0);
+        case 5:
+            exit(0);
 
-            default:
-                continue;
+        default:
+            continue;
         }
 
     } while ((bool) answer);
