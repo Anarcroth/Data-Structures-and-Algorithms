@@ -228,7 +228,7 @@ void sorting<T>::display(std::vector<T> &array)
         std::cout << it << " ";
     }
 }
-/*
+
 int main()
 {
     // This is the proper way to generate a random number in C++11 and above.
@@ -239,7 +239,7 @@ int main()
 
          for (int i=0; i<16; ++i)
              std::cout << dist(mt) << "\n";
-     *//*
+     */
 
     signed int size;
     std::cout << "Enter a size for the array: ";
@@ -247,31 +247,31 @@ int main()
 
     sorting<int> sort_algthms;
 
-    std::vector<int> array, array2, array3, array4, array5;
+    std::vector<int> bubble_arr, insrt_arr, select_arr, quick_arr, merge_arr;
 
-    array = sort_algthms.generate_rand_array(array, size);
-    array2 = sort_algthms.generate_rand_array(array2, size);
-    array3 = sort_algthms.generate_rand_array(array3, size);
-    array4 = sort_algthms.generate_rand_array(array4, size);
-    array5 = sort_algthms.generate_rand_array(array5, size);
+    bubble_arr = sort_algthms.generate_rand_array(bubble_arr, size);
+    insrt_arr = sort_algthms.generate_rand_array(insrt_arr, size);
+    select_arr = sort_algthms.generate_rand_array(select_arr, size);
+    quick_arr = sort_algthms.generate_rand_array(quick_arr, size);
+    merge_arr = sort_algthms.generate_rand_array(merge_arr, size);
 
-    sort_algthms.bubble_sort(array, size);
+    sort_algthms.bubble_sort(bubble_arr, size);
 
     std::cout << "\n\nInsertion Sort: \n";
-    sort_algthms.insertion_sort(array2, size);
-    sort_algthms.display(array2);
+    sort_algthms.insertion_sort(insrt_arr, size);
+    sort_algthms.display(insrt_arr);
 
     std::cout << "\n\nSelection Sort: \n";
-    sort_algthms.selection_sort(array3, size);
-    sort_algthms.display(array3);
+    sort_algthms.selection_sort(select_arr, size);
+    sort_algthms.display(select_arr);
 
     std::cout << "\n\nQuick Sort: \n";
-    sort_algthms.quick_sort(array4, 0, size);
-    sort_algthms.display(array4);
+    sort_algthms.quick_sort(quick_arr, 0, size);
+    sort_algthms.display(quick_arr);
 
     std::cout << "\n\nMerge Sort: \n";
-    sort_algthms.merge_sort(array5, 0, size - 1);
-    sort_algthms.display(array5);
+    sort_algthms.merge_sort(merge_arr, 0, size - 1);
+    sort_algthms.display(merge_arr);
 
     return 0;
-}*/
+}

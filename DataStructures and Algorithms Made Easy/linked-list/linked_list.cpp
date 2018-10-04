@@ -151,7 +151,7 @@ int main()
     std::cout << "----- Linked List Menu -----\n";
 
     std::cout << "1. Insert element to the list.\n";
-    std::cout << "2. Insert element at a posiiton.\n";
+    std::cout << "2. Insert element at a position.\n";
     std::cout << "3. Display contents of the list.\n";
     std::cout << "4. Delete element at a position.\n";
     std::cout << "5. Quit.\n";

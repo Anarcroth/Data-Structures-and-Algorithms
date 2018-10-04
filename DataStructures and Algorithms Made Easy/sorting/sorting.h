@@ -5,6 +5,8 @@
 #ifndef DATASTRUCTURES_AND_ALGORITHMS_MADE_EASY_SORTING_H
 #define DATASTRUCTURES_AND_ALGORITHMS_MADE_EASY_SORTING_H
 
+#include <vector>
+
 template<class T>
 class sorting
 {
